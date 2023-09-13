@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>1.0 Syntax Basics - COMP4768: Software Development for Mobile Devices</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "1.0 Syntax Basics";
+        var mkdocs_page_input_path = "1.0_syntax_basics.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP4768: Software Development for Mobile Devices
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Module 0: Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.0_course_intro/">0.0 Course Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.1_getting_started/">0.1 Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.2_hello_world/">0.2 Hello World</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Module 1: Dart</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">1.0 Syntax Basics</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#null-safety-in-dart">Null Safety in Dart</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-null-safety">What is Null Safety?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#why-is-it-important">Why is it Important?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#key-changes-introduced-by-null-safety">Key Changes Introduced by Null Safety:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-happens-if-you-dont-follow-these-rules">What Happens if You Don't Follow These Rules?</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#default-value-in-dart">Default Value in Dart</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#nullable-variables-start-as-null">Nullable Variables Start as Null</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-assert">What is assert()?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#non-nullable-variables-need-initialization">Non-Nullable Variables Need Initialization</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#local-variables-and-initialization">Local Variables and Initialization</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#lazy-initialization-for-top-level-and-class-variables">Lazy Initialization for Top-Level and Class Variables</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#late-variables">Late Variables</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-the-late-modifier">What is the late Modifier?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#when-to-use-late">When to Use late?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-basic-usage">Example 1: Basic Usage</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-happens-if-you-forget-to-initialize">What Happens if You Forget to Initialize?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-lazy-initialization">Example 2: Lazy Initialization</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-and-const">Final and Const</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#what-are-final-and-const-variables">What are Final and Const Variables?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-to-declare-them">How to Declare Them?</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-the-late-keyword-in-dart">Understanding the late Keyword in Dart</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#how-does-it-work">How Does It Work?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#why-use-late">Why Use late?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-happens-if-you-forget">What Happens If You Forget?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-about-late-final">What About late final?</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#operators">Operators</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-math-operations-in-dart">Basic Math Operations in Dart</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#increment-and-decrement">Increment and Decrement</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparing-values">Comparing Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#type-checking">Type Checking</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#assignment-operators">Assignment Operators</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#logical-operations">Logical Operations</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#comments">Comments</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#comments-in-dart">Comments in Dart</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#single-line-comments">Single-Line Comments</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#multi-line-comments">Multi-Line Comments</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#documentation-comments">Documentation Comments</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#libraries-and-imports">Libraries and Imports</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#libraries-and-imports-in-dart">Libraries and Imports in Dart</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#using-libraries">Using Libraries</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#specifying-a-library-prefix">Specifying a Library Prefix</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#importing-only-part-of-a-library">Importing Only Part of a Library</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#lazily-loading-a-library">Lazily Loading a Library</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.1_types/">1.1 Types</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendix</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../9.1_how_to_git/">A: How to Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../9.2_analysis_options.yaml/">B: Modify analysis_options.yaml to make it chill</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP4768: Software Development for Mobile Devices</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Module 1: Dart &raquo;</li>
+      <li class="breadcrumb-item active">1.0 Syntax Basics</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="syntax-basics">Syntax Basics</h1>
+<h2 id="variables">Variables</h2>
+<p>Here’s an example of creating a variable and initializing it:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Variables store references. The variable called <code>name</code> contains a
+reference to a <code>String</code> object with a value of “Bob”.</p>
+<p>The type of the <code>name</code> variable is inferred to be <code>String</code>,
+but you can change that type by specifying it.
+If an object isn't restricted to a single type,
+specify the <code>Object</code> type (or <code>dynamic</code> if necessary).</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">Object</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Another option is to explicitly declare the type that would be inferred:</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<h3 id="null-safety-in-dart">Null Safety in Dart</h3>
+<h4 id="what-is-null-safety">What is Null Safety?</h4>
+<p>Null safety is a feature in Dart that helps you avoid mistakes related to using <code>null</code> values. It catches these mistakes when you're writing the code, not when the code is running.</p>
+<h4 id="why-is-it-important">Why is it Important?</h4>
+<p>If you try to use a <code>null</code> value in a way that's not allowed, your program can crash. Dart's null safety helps you catch these issues early.</p>
+<h4 id="key-changes-introduced-by-null-safety">Key Changes Introduced by Null Safety:</h4>
+<ol>
+<li>
+<p><strong>Nullable and Non-Nullable Types</strong>: </p>
+<ul>
+<li><code>String? name</code>: This means <code>name</code> can be either a string or <code>null</code>.</li>
+<li><code>String name</code>: This means <code>name</code> can only be a string and never <code>null</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Initialization Requirement</strong>: </p>
+<ul>
+<li>You have to give a starting value to non-nullable variables. </li>
+<li>Nullable variables automatically start with <code>null</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Limited Operations on Nullable Types</strong>: </p>
+<ul>
+<li>If a variable can be <code>null</code>, you can't just use it like a regular variable. You have to check if it's <code>null</code> first.</li>
+</ul>
+</li>
+</ol>
+<h4 id="what-happens-if-you-dont-follow-these-rules">What Happens if You Don't Follow These Rules?</h4>
+<p>The Dart compiler will show you an error message. You'll have to fix it before you can run your program.</p>
+<p>In short, null safety helps you write safer code by catching potential mistakes related to <code>null</code> values early on.</p>
+<h3 id="default-value-in-dart">Default Value in Dart</h3>
+<h4 id="nullable-variables-start-as-null">Nullable Variables Start as Null</h4>
+<p>If you declare a variable as nullable (like <code>int? lineCount;</code>), it starts with a value of <code>null</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="o">?</span><span class="w"> </span><span class="n">lineCount</span><span class="p">;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">lineCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</code></pre></div>
+
+<h4 id="what-is-assert">What is <code>assert()</code>?</h4>
+<p>The <code>assert()</code> function checks if a condition is true. If it's not, the program stops running. This is mainly used during development to catch errors early.</p>
+<h4 id="non-nullable-variables-need-initialization">Non-Nullable Variables Need Initialization</h4>
+<p>If a variable can't be <code>null</code> (like <code>int lineCount;</code>), you must give it a starting value before using it.</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">lineCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+</code></pre></div>
+
+<h4 id="local-variables-and-initialization">Local Variables and Initialization</h4>
+<p>You don't have to give a local variable its starting value right where you declare it. But you do have to give it a value before you use it. Dart checks this for you.</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">lineCount</span><span class="p">;</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">weLikeToCount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">lineCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">countLines</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">lineCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">print</span><span class="p">(</span><span class="n">lineCount</span><span class="p">);</span>
+</code></pre></div>
+
+<h4 id="lazy-initialization-for-top-level-and-class-variables">Lazy Initialization for Top-Level and Class Variables</h4>
+<p>These variables only get their starting values the first time you use them. This is called "lazy initialization."</p>
+<p>Dart requires you to be clear about whether a variable can be <code>null</code> and ensures you give a starting value to variables that can't be <code>null</code>.</p>
+<h3 id="late-variables">Late Variables</h3>
+<h4 id="what-is-the-late-modifier">What is the <code>late</code> Modifier?</h4>
+<p>The <code>late</code> keyword in Dart is used for two main reasons:
+1. To declare a variable that you will give a value to later, but you're sure it will have a value before you use it.
+2. To delay the initialization of a variable until it's actually used.</p>
+<h4 id="when-to-use-late">When to Use <code>late</code>?</h4>
+<p>Sometimes Dart can't figure out if a variable will have a value before it's used. This often happens with top-level variables and instance variables in classes. If you're sure the variable will have a value, you can use <code>late</code> to tell Dart it's okay.</p>
+<h4 id="example-1-basic-usage">Example 1: Basic Usage</h4>
+<div class="codehilite"><pre><span></span><code><span class="kd">late</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">description</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Feijoada!&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">description</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Here, <code>description</code> is declared as <code>late</code>, and it gets a value in the <code>main()</code> function before it's used.</p>
+<h4 id="what-happens-if-you-forget-to-initialize">What Happens if You Forget to Initialize?</h4>
+<p>If you declare a variable as <code>late</code> but never give it a value, you'll get a runtime error when you try to use it.</p>
+<h4 id="example-2-lazy-initialization">Example 2: Lazy Initialization</h4>
+<div class="codehilite"><pre><span></span><code><span class="kd">late</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readThermometer</span><span class="p">();</span>
+</code></pre></div>
+
+<p>In this example, <code>readThermometer()</code> is only called the first time <code>temperature</code> is used. This is useful when:
+- The initialization is expensive (takes a lot of time or resources).
+- The variable might not be needed at all.</p>
+<p>So, use <code>late</code> when you're sure a variable will be initialized before it's used, or when you want to delay its initialization.</p>
+<h3 id="final-and-const">Final and Const</h3>
+<h4 id="what-are-final-and-const-variables">What are Final and Const Variables?</h4>
+<ul>
+<li><code>final</code>: You can set its value only once. After that, it can't be changed.</li>
+<li><code>const</code>: It's a value that's determined at the time the code is compiled, and it can't be changed later. </li>
+</ul>
+<h4 id="how-to-declare-them">How to Declare Them?</h4>
+<ul>
+<li><code>final name = 'Bob';</code> or <code>final String nickname = 'Bobby';</code></li>
+<li><code>const bar = 1000000;</code> or <code>const double atm = 1.01325 * bar;</code></li>
+</ul>
+<h3 id="understanding-the-late-keyword-in-dart">Understanding the <code>late</code> Keyword in Dart</h3>
+<p>The <code>late</code> keyword in Dart is a way to tell the Dart compiler that a variable will be initialized at some point in the future, but not right away. It's like telling Dart, "Hey, I promise I'll give this variable a value before I use it, so don't worry about it for now."</p>
+<h4 id="how-does-it-work">How Does It Work?</h4>
+<p>Let's say you have a variable called <code>name</code>, and you know you'll give it a value later on. You can declare it like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">late</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Then, in your <code>main()</code> function or somewhere else, you can assign a value to it:</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;John&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="why-use-late">Why Use <code>late</code>?</h4>
+<ol>
+<li><strong>Avoid Null Errors</strong>: It helps you avoid null errors by allowing you to declare a non-nullable variable without initializing it right away.</li>
+<li><strong>Lazy Initialization</strong>: It allows you to delay the initialization of a variable until you actually need it, which can save computational resources.</li>
+</ol>
+<h4 id="what-happens-if-you-forget">What Happens If You Forget?</h4>
+<p>If you declare a variable with <code>late</code> but forget to initialize it before using it, Dart will throw an error. So, you have to keep your promise!</p>
+<h4 id="examples">Examples</h4>
+<p>Here's how you can use <code>late</code> in a class:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">late</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">greet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Hello </span><span class="si">$</span><span class="n">name</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>And in the <code>main()</code> function:</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Person</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Person</span><span class="p">();</span>
+<span class="w">  </span><span class="n">person</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;John&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="n">person</span><span class="p">.</span><span class="n">greet</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="what-about-late-final">What About <code>late final</code>?</h4>
+<p>If you want to assign a value to a variable only once and never change it, you can use <code>late final</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">late</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</code></pre></div>
+
+<h2 id="operators">Operators</h2>
+<h3 id="basic-math-operations-in-dart">Basic Math Operations in Dart</h3>
+<p>Dart offers a variety of arithmetic operators to perform mathematical calculations. Here's a quick rundown:</p>
+<ul>
+<li><strong>Addition (<code>+</code>)</strong>: Adds two numbers.</li>
+<li><strong>Subtraction (<code>-</code>)</strong>: Subtracts one number from another.</li>
+<li><strong>Negation (<code>-expr</code>)</strong>: Reverses the sign of a number.</li>
+<li><strong>Multiplication (<code>*</code>)</strong>: Multiplies two numbers.</li>
+<li><strong>Division (<code>/</code>)</strong>: Divides one number by another, returns a decimal.</li>
+<li><strong>Integer Division (<code>~/</code>)</strong>: Divides and rounds down to the nearest integer.</li>
+<li><strong>Remainder (<code>%</code>)</strong>: Gives the remainder after division.</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="k">assert</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">5</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">6</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="m">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2.5</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="m">5</span><span class="w"> </span><span class="o">~/</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="m">5</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+</code></pre></div>
+
+<h3 id="increment-and-decrement">Increment and Decrement</h3>
+<p>Dart also supports increment (<code>++</code>) and decrement (<code>--</code>) operators, both in prefix and postfix forms.</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">a</span><span class="p">;</span><span class="w">  </span><span class="c1">// a is incremented before assigning to b.</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1 == 1</span>
+
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="c1">// a is incremented after assigning to b.</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1 != 0</span>
+</code></pre></div>
+
+<h3 id="comparing-values">Comparing Values</h3>
+<p>You can compare values using equality and relational operators:</p>
+<ul>
+<li><strong>Equal (<code>==</code>)</strong>: Checks if two values are equal.</li>
+<li><strong>Not Equal (<code>!=</code>)</strong>: Checks if two values are not equal.</li>
+<li><strong>Greater Than (<code>&gt;</code>), Less Than (<code>&lt;</code>), Greater or Equal (<code>&gt;=</code>), Less or Equal (<code>&lt;=</code>)</strong>: Compares two values.</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="k">assert</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="m">3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
+</code></pre></div>
+
+<h3 id="type-checking">Type Checking</h3>
+<p>Dart provides operators for runtime type checking:</p>
+<ul>
+<li><strong><code>as</code></strong>: Casts an object to a specific type.</li>
+<li><strong><code>is</code></strong>: Checks if an object is of a specific type.</li>
+<li><strong><code>is!</code></strong>: Checks if an object is not of a specific type.</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">employee</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Person</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">employee</span><span class="p">.</span><span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="assignment-operators">Assignment Operators</h3>
+<p>You can assign values using <code>=</code> and use <code>??=</code> to assign a value only if the variable is null.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">  </span><span class="c1">// Assigns value to a</span>
+<span class="n">b</span><span class="w"> </span><span class="o">??=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">  </span><span class="c1">// Assigns value to b only if b is null</span>
+</code></pre></div>
+
+<h3 id="logical-operations">Logical Operations</h3>
+<p>Dart supports logical operators to work with boolean values:</p>
+<ul>
+<li><strong>Not (<code>!</code>)</strong>: Inverts a boolean value.</li>
+<li><strong>OR (<code>||</code>)</strong>: Returns true if at least one condition is true.</li>
+<li><strong>AND (<code>&amp;&amp;</code>)</strong>: Returns true only if all conditions are true.</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">done</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Do something</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="comments">Comments</h2>
+<h3 id="comments-in-dart">Comments in Dart</h3>
+<p>Dart allows you to add comments to your code in three different ways: single-line comments, multi-line comments, and documentation comments.</p>
+<h4 id="single-line-comments">Single-Line Comments</h4>
+<p>To write a single-line comment, use <code>//</code>. The Dart compiler will ignore everything from <code>//</code> to the end of the line.</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// This is a single-line comment</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="multi-line-comments">Multi-Line Comments</h4>
+<p>For comments that span multiple lines, use <code>/*</code> to start and <code>*/</code> to end the comment. Everything between these markers is ignored by the Dart compiler.</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cm">/* This is a multi-line comment.</span>
+<span class="cm">     You can write as much as you want here.</span>
+<span class="cm">  */</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="documentation-comments">Documentation Comments</h4>
+<p>To write documentation comments, use <code>///</code> for single-line or <code>/** ... */</code> for multi-line comments. These comments are useful for generating API documentation.</p>
+<p>You can also include references to other parts of your code within square brackets <code>[]</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">/// This is a Llama class.</span>
+<span class="c1">///</span>
+<span class="c1">/// Don&#39;t forget to [feed] the llama.</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">Llama</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">/// This method [feeds] the llama.</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">feed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// feeding code here</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>In these documentation comments, text inside square brackets refers to other code elements, like methods or variables, and can be resolved to their definitions.</p>
+<h2 id="libraries-and-imports">Libraries and Imports</h2>
+<h3 id="libraries-and-imports-in-dart">Libraries and Imports in Dart</h3>
+<p>Dart allows you to create modular and shareable code through the use of libraries and import directives. Libraries also serve as a unit of privacy, meaning identifiers starting with an underscore (<code>_</code>) are only visible within that library.</p>
+<h4 id="using-libraries">Using Libraries</h4>
+<p>To use a library in Dart, you use the <code>import</code> directive. This specifies how a namespace from one library is used in the scope of another library.</p>
+<p>For example, to use the <code>dart:html</code> library in a Dart web app, you would import it like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;dart:html&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>The only required argument for <code>import</code> is a URI that specifies the library. For built-in libraries, the URI uses the <code>dart:</code> scheme. For other libraries, you can use a file system path or the <code>package:</code> scheme.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:test/test.dart&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<h4 id="specifying-a-library-prefix">Specifying a Library Prefix</h4>
+<p>If you have two libraries with conflicting identifiers, you can specify a prefix for one or both of them. For example:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:lib1/lib1.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:lib2/lib2.dart&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">lib2</span><span class="p">;</span>
+
+<span class="n">Element</span><span class="w"> </span><span class="n">element1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Element</span><span class="p">();</span><span class="w">  </span><span class="c1">// Uses Element from lib1</span>
+<span class="n">lib2</span><span class="p">.</span><span class="n">Element</span><span class="w"> </span><span class="n">element2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lib2</span><span class="p">.</span><span class="n">Element</span><span class="p">();</span><span class="w">  </span><span class="c1">// Uses Element from lib2</span>
+</code></pre></div>
+
+<h4 id="importing-only-part-of-a-library">Importing Only Part of a Library</h4>
+<p>You can selectively import parts of a library using <code>show</code> or <code>hide</code> keywords.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Import only foo.</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:lib1/lib1.dart&#39;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
+
+<span class="c1">// Import all names EXCEPT foo.</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:lib2/lib2.dart&#39;</span><span class="w"> </span><span class="k">hide</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
+</code></pre></div>
+
+<h4 id="lazily-loading-a-library">Lazily Loading a Library</h4>
+<p>Deferred loading, also known as lazy loading, allows you to load a library on demand. This is useful for reducing initial startup time or for A/B testing.</p>
+<p>To lazily load a library, you must first import it using <code>deferred as</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:greetings/hello.dart&#39;</span><span class="w"> </span><span class="k">deferred</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">hello</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Then, you can load the library when needed using <code>loadLibrary()</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">greet</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">await</span><span class="w"> </span><span class="n">hello</span><span class="p">.</span><span class="n">loadLibrary</span><span class="p">();</span>
+<span class="w">  </span><span class="n">hello</span><span class="p">.</span><span class="n">printGreeting</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../0.2_hello_world/" class="btn btn-neutral float-left" title="0.2 Hello World"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../1.1_types/" class="btn btn-neutral float-right" title="1.1 Types">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../0.2_hello_world/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../1.1_types/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>1.1 Types - COMP4768: Software Development for Mobile Devices</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "1.1 Types";
+        var mkdocs_page_input_path = "1.1_types.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP4768: Software Development for Mobile Devices
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Module 0: Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.0_course_intro/">0.0 Course Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.1_getting_started/">0.1 Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.2_hello_world/">0.2 Hello World</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Module 1: Dart</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../1.0_syntax_basics/">1.0 Syntax Basics</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">1.1 Types</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#built-in-types">Built-in types</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#numbers-int-double">Numbers (int, double)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#types-of-numbers">Types of Numbers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#converting-types">Converting Types</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#bitwise-operations">Bitwise Operations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#constants">Constants</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#strings-string">Strings (String)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-a-string">What is a String?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#examples_1">Examples</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#string-interpolation">String Interpolation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparing-strings">Comparing Strings</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#joining-strings">Joining Strings</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#multi-line-strings">Multi-Line Strings</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#raw-strings">Raw Strings</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#constants_1">Constants</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#booleans-bool">Booleans (bool)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#records-value1-value2">Records ((value1, value2))</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#what-are-records">What are Records?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-to-use-records">How to Use Records</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#accessing-record-fields">Accessing Record Fields</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#record-types-and-equality">Record Types and Equality</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#returning-multiple-values">Returning Multiple Values</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lists-list-also-known-as-arrays">Lists (List, also known as arrays)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sets-set">Sets (Set)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#maps-map">Maps (Map)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#common-collection-methods">Common collection methods</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#runes-runes-often-replaced-by-the-characters-api">Runes (Runes; often replaced by the characters API)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#symbols-symbol">Symbols (Symbol)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-value-null-null">The value null (Null)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendix</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../9.1_how_to_git/">A: How to Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../9.2_analysis_options.yaml/">B: Modify analysis_options.yaml to make it chill</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP4768: Software Development for Mobile Devices</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Module 1: Dart &raquo;</li>
+      <li class="breadcrumb-item active">1.1 Types</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="types">Types</h1>
+<h2 id="built-in-types">Built-in types</h2>
+<h3 id="numbers-int-double">Numbers (int, double)</h3>
+<h4 id="types-of-numbers">Types of Numbers</h4>
+<p>In Dart, you have two main types of numbers:</p>
+<ol>
+<li>
+<p><strong>int</strong>: These are whole numbers. They can be as large as 64 bits, but the range varies depending on where your code runs. For example, in a web browser, the range is from -2^53 to 2^53 - 1.</p>
+</li>
+<li>
+<p><strong>double</strong>: These are numbers with decimal points, and they follow a standard called IEEE 754.</p>
+</li>
+</ol>
+<p>Both <code>int</code> and <code>double</code> come under a general type called <code>num</code>, which has basic math operations like addition (+), subtraction (-), and so on.</p>
+<h4 id="examples">Examples</h4>
+<ul>
+<li>Integer (int):</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xDEADBEEF</span><span class="p">;</span>
+</code></pre></div>
+
+<ul>
+<li>Decimal (double):</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.1</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">exponents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.42e5</span><span class="p">;</span>
+</code></pre></div>
+
+<ul>
+<li>General number (num):</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kt">num</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="m">2.5</span><span class="p">;</span>
+</code></pre></div>
+
+<h4 id="converting-types">Converting Types</h4>
+<ul>
+<li>From string to int or double:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">onePointOne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;1.1&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<ul>
+<li>From int or double to string:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kt">String</span><span class="w"> </span><span class="n">oneAsString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.</span><span class="n">toString</span><span class="p">();</span>
+<span class="kt">String</span><span class="w"> </span><span class="n">piAsString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.14159</span><span class="p">.</span><span class="n">toStringAsFixed</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+</code></pre></div>
+
+<h4 id="bitwise-operations">Bitwise Operations</h4>
+<p>You can also perform bitwise operations like shifting and masking with integers. For example:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">assert</span><span class="p">((</span><span class="m">3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">6</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">((</span><span class="m">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">7</span><span class="p">);</span>
+</code></pre></div>
+
+<h4 id="constants">Constants</h4>
+<p>Numbers can be constants, and you can perform calculations with them at compile-time.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">msPerSecond</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="n">msUntilRetry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">secondsUntilRetry</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">msPerSecond</span><span class="p">;</span>
+</code></pre></div>
+
+<p>That's the gist of working with numbers in Dart! For more, see <a href="https://dart.dev/language/built-in-types#numbers">this</a>.</p>
+<h3 id="strings-string">Strings (String)</h3>
+<h4 id="what-is-a-string">What is a String?</h4>
+<p>In Dart, a string is a sequence of characters. You can create a string using either single (<code>' '</code>) or double (<code>" "</code>) quotes.</p>
+<h4 id="examples_1">Examples</h4>
+<ul>
+<li>
+<p>Using single quotes:
+  <code>dart
+  var s1 = 'Hello, world!';</code></p>
+</li>
+<li>
+<p>Using double quotes:
+  <code>dart
+  var s2 = "Hello, again!";</code></p>
+</li>
+<li>
+<p>Escaping quotes:
+  <code>dart
+  var s3 = 'It\'s a sunny day!';</code></p>
+</li>
+</ul>
+<h4 id="string-interpolation">String Interpolation</h4>
+<p>You can insert the value of a variable or expression into a string using <code>${expression}</code>. If it's just a variable name, you can even skip the curly braces (<code>{}</code>).</p>
+<ul>
+<li>Example:
+  <code>dart
+  var name = 'John';
+  print('Hello, ${name.toUpperCase()}');  // Output: Hello, JOHN</code></li>
+</ul>
+<h4 id="comparing-strings">Comparing Strings</h4>
+<p>To check if two strings are the same, use the <code>==</code> operator.</p>
+<h4 id="joining-strings">Joining Strings</h4>
+<p>You can join two or more strings in several ways:</p>
+<ul>
+<li>By simply placing them next to each other.</li>
+<li>Using the <code>+</code> operator.</li>
+</ul>
+<h4 id="multi-line-strings">Multi-Line Strings</h4>
+<p>To write a string that spans multiple lines, use triple quotes (<code>''' '''</code> or <code>""" """</code>).</p>
+<ul>
+<li>Example:
+  <code>dart
+  var poem = '''
+  Roses are red,
+  Violets are blue.
+  ''';</code></li>
+</ul>
+<h4 id="raw-strings">Raw Strings</h4>
+<p>If you don't want special characters like <code>\n</code> to be treated specially, use a raw string by adding <code>r</code> before the string.</p>
+<ul>
+<li>Example:
+  <code>dart
+  var rawString = r'This is a \n raw string.';</code></li>
+</ul>
+<h4 id="constants_1">Constants</h4>
+<p>Strings can be constants if they don't contain any variables that change at runtime.</p>
+<ul>
+<li>Example:
+  <code>dart
+  const aConstString = 'This is a constant string';</code></li>
+</ul>
+<p>And that's a quick rundown of how to work with strings in Dart!</p>
+<h3 id="booleans-bool">Booleans (bool)</h3>
+<p>In Dart, the <code>bool</code> type can only be <code>true</code> or <code>false</code>, and these are fixed constants. Dart is strict about types, so you can't use non-boolean values in <code>if</code> or <code>assert</code> statements.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Check for an empty string.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">fullName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">fullName</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">);</span>
+
+<span class="c1">// Check for zero.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">hitPoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">hitPoints</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+
+<span class="c1">// Check for null.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">unicorn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">unicorn</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+
+<span class="c1">// Check for NaN.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">iMeantToDoThis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">iMeantToDoThis</span><span class="p">.</span><span class="n">isNaN</span><span class="p">);</span>
+</code></pre></div>
+
+<h3 id="records-value1-value2">Records ((value1, value2))</h3>
+<hr />
+<h4 id="what-are-records">What are Records?</h4>
+<p>Records are a special kind of data structure that lets you group different types of data together into one object. They are:</p>
+<ul>
+<li><strong>Anonymous</strong>: Don't have a name.</li>
+<li><strong>Immutable</strong>: Can't be changed once created.</li>
+<li><strong>Fixed-Size</strong>: Can't add or remove items.</li>
+<li><strong>Typed</strong>: Each item has a specific type.</li>
+</ul>
+<p>You can use records just like any other data type: store them in variables, use them in functions, or even put them in lists and maps.</p>
+<hr />
+<h4 id="how-to-use-records">How to Use Records</h4>
+<p><strong>Creating a Record</strong>: Use parentheses to group data together.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">);</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">,</span><span class="w"> </span><span class="nl">a:</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="nl">b:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;last&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="p">({</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">})</span><span class="w"> </span><span class="n">namedRecord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nl">a:</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="nl">b:</span><span class="w"> </span><span class="m">20</span><span class="p">);</span>
+</code></pre></div>
+
+<p><em>Record type annotations</em> are comma-delimited lists of types enclosed in parentheses.
+You can use record type annotations to define return types and parameter types.
+For example, the following <code>(int, int)</code> statements are record type annotations:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">swap</span><span class="p">((</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">record</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">record</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>Named and Positional Fields</strong>: Records can have both named and positional fields. Named fields use curly braces.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">({</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="p">})</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nl">a:</span><span class="w"> </span><span class="m">123</span><span class="p">,</span><span class="w"> </span><span class="nl">b:</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</code></pre></div>
+
+<p><strong>Type Matching</strong>: Records with different named fields are considered different types.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">({</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">})</span><span class="w"> </span><span class="n">recordAB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nl">a:</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="nl">b:</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="p">({</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">})</span><span class="w"> </span><span class="n">recordXY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nl">x:</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="nl">y:</span><span class="w"> </span><span class="m">4</span><span class="p">);</span>
+<span class="c1">// This will cause an error because they are different types.</span>
+<span class="c1">// recordAB = recordXY;</span>
+</code></pre></div>
+
+<hr />
+<h4 id="accessing-record-fields">Accessing Record Fields</h4>
+<p>You can access the data in a record using built-in getters. Since records are immutable, you can't change the data once it's set.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">,</span><span class="w"> </span><span class="nl">a:</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="nl">b:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;last&#39;</span><span class="p">);</span>
+<span class="n">print</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="n">$1</span><span class="p">);</span><span class="w"> </span><span class="c1">// Prints &#39;first&#39;</span>
+<span class="n">print</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="n">a</span><span class="p">);</span><span class="w">  </span><span class="c1">// Prints 2</span>
+<span class="n">print</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="n">b</span><span class="p">);</span><span class="w">  </span><span class="c1">// Prints true</span>
+<span class="n">print</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="n">$2</span><span class="p">);</span><span class="w"> </span><span class="c1">// Prints &#39;last&#39;</span>
+</code></pre></div>
+
+<hr />
+<h4 id="record-types-and-equality">Record Types and Equality</h4>
+<p>Records are identified by their shape, which is defined by the types, names, and order of their fields. Two records are equal if their shapes and the data inside them are the same.</p>
+<hr />
+<h4 id="returning-multiple-values">Returning Multiple Values</h4>
+<p>Records are useful for functions that need to return more than one value. You can easily unpack these values into variables.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">userInfo</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;</span><span class="w"> </span><span class="n">json</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">json</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">json</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">var</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userInfo</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+</code></pre></div>
+
+<h3 id="lists-list-also-known-as-arrays">Lists (List, also known as arrays)</h3>
+<p>As demonstrated in the language tour, you can use literals to create and initialize <a href="#lists">lists</a>. Alternatively, you can use one of the List constructors. The List class also provides several methods for adding and removing items.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Create an empty list of strings.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">grains</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">[];</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">grains</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">);</span>
+
+<span class="c1">// Create a list using a list literal.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;apples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;oranges&#39;</span><span class="p">];</span>
+
+<span class="c1">// Add to a list.</span>
+<span class="n">fruits</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;kiwis&#39;</span><span class="p">);</span>
+
+<span class="c1">// Add multiple items to a list.</span>
+<span class="n">fruits</span><span class="p">.</span><span class="n">addAll</span><span class="p">([</span><span class="s1">&#39;grapes&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bananas&#39;</span><span class="p">]);</span>
+
+<span class="c1">// Get the list length.</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">fruits</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">5</span><span class="p">);</span>
+
+<span class="c1">// Remove a single item.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">appleIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fruits</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s1">&#39;apples&#39;</span><span class="p">);</span>
+<span class="n">fruits</span><span class="p">.</span><span class="n">removeAt</span><span class="p">(</span><span class="n">appleIndex</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">fruits</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">4</span><span class="p">);</span>
+
+<span class="c1">// Remove all elements from a list.</span>
+<span class="n">fruits</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">fruits</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">);</span>
+
+<span class="c1">// You can also create a List using one of the constructors.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">vegetables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="n">filled</span><span class="p">(</span><span class="m">99</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;broccoli&#39;</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">vegetables</span><span class="p">.</span><span class="n">every</span><span class="p">((</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;broccoli&#39;</span><span class="p">));</span>
+</code></pre></div>
+
+<p>To find the index of an object in a list, use <code>indexOf()</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;apples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;oranges&#39;</span><span class="p">];</span>
+
+<span class="c1">// Access a list item by index.</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="m">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;apples&#39;</span><span class="p">);</span>
+
+<span class="c1">// Find an item in a list.</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">fruits</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s1">&#39;apples&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+</code></pre></div>
+
+<p>To sort a list, use the <code>sort()</code> method. You can provide a sorting function that compares two objects:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;bananas&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;apples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;oranges&#39;</span><span class="p">];</span>
+
+<span class="c1">// Sort a list.</span>
+<span class="n">fruits</span><span class="p">.</span><span class="n">sort</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">compareTo</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="m">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;apples&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Lists are parameterized types (<a href="/language/generics">generics</a>), allowing you to specify the type of elements they should contain:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// This list should contain only strings.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">[];</span>
+
+<span class="n">fruits</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;apples&#39;</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">fruit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fruits</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">fruit</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="kt">String</span><span class="p">);</span>
+</code></pre></div>
+
+<blockquote>
+<p><strong>Note:</strong> In many cases, you don't need to explicitly specify generic types, as Dart will infer them for you. However, there are times when you should specify them, especially when Dart has nothing to infer from.</p>
+</blockquote>
+<h3 id="sets-set">Sets (Set)</h3>
+<p>A set in Dart is an unordered collection of unique items. Sets do not support indexing.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Create an empty set of strings.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">ingredients</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">{};</span>
+
+<span class="c1">// Add new items to it.</span>
+<span class="n">ingredients</span><span class="p">.</span><span class="n">addAll</span><span class="p">([</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;titanium&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;xenon&#39;</span><span class="p">]);</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">ingredients</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
+
+<span class="c1">// Adding a duplicate item has no effect.</span>
+<span class="n">ingredients</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;gold&#39;</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">ingredients</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
+
+<span class="c1">// Remove an item from a set.</span>
+<span class="n">ingredients</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;gold&#39;</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">ingredients</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+
+<span class="c1">// You can also create sets using constructors.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">atomicNumbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="n">from</span><span class="p">([</span><span class="m">79</span><span class="p">,</span><span class="w"> </span><span class="m">22</span><span class="p">,</span><span class="w"> </span><span class="m">54</span><span class="p">]);</span>
+</code></pre></div>
+
+<p>To check for the presence of one or more objects in a set, use <code>contains()</code> and <code>containsAll()</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">ingredients</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">ingredients</span><span class="p">.</span><span class="n">addAll</span><span class="p">([</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;titanium&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;xenon&#39;</span><span class="p">]);</span>
+
+<span class="c1">// Check whether an item is in the set.</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">ingredients</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;titanium&#39;</span><span class="p">));</span>
+
+<span class="c1">// Check whether all the items are in the set.</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">ingredients</span><span class="p">.</span><span class="n">containsAll</span><span class="p">([</span><span class="s1">&#39;titanium&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;xenon&#39;</span><span class="p">]));</span>
+</code></pre></div>
+
+<h3 id="maps-map">Maps (Map)</h3>
+<p>A map, commonly known as a <em>dictionary</em> or <em>hash</em>, is an unordered
+collection of key-value pairs. Maps associate a key to some value for
+easy retrieval. Unlike in JavaScript, Dart objects are not maps.</p>
+<p>You can declare a map using a terse literal syntax, or you can use a
+traditional constructor:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Maps often use strings as keys.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">hawaiianBeaches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s1">&#39;Oahu&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Waikiki&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Kailua&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Waimanalo&#39;</span><span class="p">],</span>
+<span class="w">  </span><span class="s1">&#39;Big Island&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Wailea Bay&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pololu Beach&#39;</span><span class="p">],</span>
+<span class="w">  </span><span class="s1">&#39;Kauai&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Hanalei&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Poipu&#39;</span><span class="p">]</span>
+<span class="p">};</span>
+
+<span class="c1">// Maps can be built from a constructor.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">searchTerms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Map</span><span class="p">();</span>
+
+<span class="c1">// Maps are parameterized types; you can specify what</span>
+<span class="c1">// types the key and value should be.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">nobleGases</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">String</span><span class="o">&gt;</span><span class="p">();</span>
+</code></pre></div>
+
+<p>You add, get, and set map items using the bracket syntax. Use <code>remove()</code>
+to remove a key and its value from a map.</p>
+<?code-excerpt "misc/test/library_tour/core_test.dart (remove)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">nobleGases</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="m">54</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;xenon&#39;</span><span class="p">};</span>
+
+<span class="c1">// Retrieve a value with a key.</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">nobleGases</span><span class="p">[</span><span class="m">54</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;xenon&#39;</span><span class="p">);</span>
+
+<span class="c1">// Check whether a map contains a key.</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">nobleGases</span><span class="p">.</span><span class="n">containsKey</span><span class="p">(</span><span class="m">54</span><span class="p">));</span>
+
+<span class="c1">// Remove a key and its value.</span>
+<span class="n">nobleGases</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="m">54</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="o">!</span><span class="n">nobleGases</span><span class="p">.</span><span class="n">containsKey</span><span class="p">(</span><span class="m">54</span><span class="p">));</span>
+</code></pre></div>
+
+<p>You can retrieve all the values or all the keys from a map:</p>
+<?code-excerpt "misc/test/library_tour/core_test.dart (keys)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">hawaiianBeaches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s1">&#39;Oahu&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Waikiki&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Kailua&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Waimanalo&#39;</span><span class="p">],</span>
+<span class="w">  </span><span class="s1">&#39;Big Island&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Wailea Bay&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pololu Beach&#39;</span><span class="p">],</span>
+<span class="w">  </span><span class="s1">&#39;Kauai&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Hanalei&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Poipu&#39;</span><span class="p">]</span>
+<span class="p">};</span>
+
+<span class="c1">// Get all the keys as an unordered collection</span>
+<span class="c1">// (an Iterable).</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hawaiianBeaches</span><span class="p">.</span><span class="n">keys</span><span class="p">;</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">keys</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">Set</span><span class="p">.</span><span class="n">from</span><span class="p">(</span><span class="n">keys</span><span class="p">).</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Oahu&#39;</span><span class="p">));</span>
+
+<span class="c1">// Get all the values as an unordered collection</span>
+<span class="c1">// (an Iterable of Lists).</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hawaiianBeaches</span><span class="p">.</span><span class="n">values</span><span class="p">;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">values</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">values</span><span class="p">.</span><span class="n">any</span><span class="p">((</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Waikiki&#39;</span><span class="p">)));</span>
+</code></pre></div>
+
+<p>To check whether a map contains a key, use <code>containsKey()</code>. Because map
+values can be null, you cannot rely on simply getting the value for the
+key and checking for null to determine the existence of a key.</p>
+<?code-excerpt "misc/test/library_tour/core_test.dart (containsKey)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">hawaiianBeaches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s1">&#39;Oahu&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Waikiki&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Kailua&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Waimanalo&#39;</span><span class="p">],</span>
+<span class="w">  </span><span class="s1">&#39;Big Island&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Wailea Bay&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pololu Beach&#39;</span><span class="p">],</span>
+<span class="w">  </span><span class="s1">&#39;Kauai&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Hanalei&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Poipu&#39;</span><span class="p">]</span>
+<span class="p">};</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">hawaiianBeaches</span><span class="p">.</span><span class="n">containsKey</span><span class="p">(</span><span class="s1">&#39;Oahu&#39;</span><span class="p">));</span>
+<span class="k">assert</span><span class="p">(</span><span class="o">!</span><span class="n">hawaiianBeaches</span><span class="p">.</span><span class="n">containsKey</span><span class="p">(</span><span class="s1">&#39;Florida&#39;</span><span class="p">));</span>
+</code></pre></div>
+
+<p>Use the <code>putIfAbsent()</code> method when you want to assign a value to a key
+if and only if the key does not already exist in a map. You must provide
+a function that returns the value.</p>
+<?code-excerpt "misc/test/library_tour/core_test.dart (putIfAbsent)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">teamAssignments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">String</span><span class="o">&gt;</span><span class="p">{};</span>
+<span class="n">teamAssignments</span><span class="p">.</span><span class="n">putIfAbsent</span><span class="p">(</span><span class="s1">&#39;Catcher&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">pickToughestKid</span><span class="p">());</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">teamAssignments</span><span class="p">[</span><span class="s1">&#39;Catcher&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Refer to the [Map API reference][Map] for a full list of methods.</p>
+<h4 id="common-collection-methods">Common collection methods</h4>
+<p>List, Set, and Map share common functionality found in many collections.
+Some of this common functionality is defined by the Iterable class,
+which List and Set implement.</p>
+<p>{{site.alert.note}}
+  Although Map doesn’t implement Iterable, you can get Iterables from it using
+  the Map <code>keys</code> and <code>values</code> properties.
+{{site.alert.end}}</p>
+<p>Use <code>isEmpty</code> or <code>isNotEmpty</code> to check whether a list, set, or map has items:</p>
+<?code-excerpt "misc/test/library_tour/core_test.dart (isEmpty)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">coffees</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">[];</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">teas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;chamomile&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;earl grey&#39;</span><span class="p">];</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">coffees</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">teas</span><span class="p">.</span><span class="n">isNotEmpty</span><span class="p">);</span>
+</code></pre></div>
+
+<p>To apply a function to each item in a list, set, or map, you can use
+<code>forEach()</code>:</p>
+<?code-excerpt "misc/test/library_tour/core_test.dart (List.forEach)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">teas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;chamomile&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;earl grey&#39;</span><span class="p">];</span>
+
+<span class="n">teas</span><span class="p">.</span><span class="n">forEach</span><span class="p">((</span><span class="n">tea</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;I drink </span><span class="si">$</span><span class="n">tea</span><span class="s1">&#39;</span><span class="p">));</span>
+</code></pre></div>
+
+<p>When you invoke <code>forEach()</code> on a map, your function must take two
+arguments (the key and value):</p>
+<?code-excerpt "misc/test/library_tour/core_test.dart (Map.forEach)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="n">hawaiianBeaches</span><span class="p">.</span><span class="n">forEach</span><span class="p">((</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;I want to visit </span><span class="si">$</span><span class="n">k</span><span class="s1"> and swim at </span><span class="si">$</span><span class="n">v</span><span class="s1">&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// I want to visit Oahu and swim at</span>
+<span class="w">  </span><span class="c1">// [Waikiki, Kailua, Waimanalo], etc.</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p>Iterables provide the <code>map()</code> method, which gives you all the results in
+a single object:</p>
+<?code-excerpt "misc/test/library_tour/core_test.dart (List.map)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">teas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;chamomile&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;earl grey&#39;</span><span class="p">];</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="n">loudTeas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">teas</span><span class="p">.</span><span class="n">map</span><span class="p">((</span><span class="n">tea</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">tea</span><span class="p">.</span><span class="n">toUpperCase</span><span class="p">());</span>
+<span class="n">loudTeas</span><span class="p">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">print</span><span class="p">);</span>
+</code></pre></div>
+
+<p>{{site.alert.note}}
+  The object returned by <code>map()</code> is an Iterable that’s <em>lazily evaluated</em>: your
+  function isn’t called until you ask for an item from the returned object.
+{{site.alert.end}}</p>
+<p>To force your function to be called immediately on each item, use
+<code>map().toList()</code> or <code>map().toSet()</code>:</p>
+<?code-excerpt "misc/test/library_tour/core_test.dart (toList)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">loudTeas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">teas</span><span class="p">.</span><span class="n">map</span><span class="p">((</span><span class="n">tea</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">tea</span><span class="p">.</span><span class="n">toUpperCase</span><span class="p">()).</span><span class="n">toList</span><span class="p">();</span>
+</code></pre></div>
+
+<p _="%" endcomment="endcomment">Use Iterable’s <code>where()</code> method to get all the items that match a
+condition. Use Iterable’s <code>any()</code> and <code>every()</code> methods to check whether
+some or all items match a condition.
+{% comment %}
+PENDING: Change example as suggested by floitsch to have (maybe)
+cities instead of isDecaffeinated.</p>
+<?code-excerpt "misc/test/library_tour/core_test.dart (where-etc)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">teas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;chamomile&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;earl grey&#39;</span><span class="p">];</span>
+
+<span class="c1">// Chamomile is not caffeinated.</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">isDecaffeinated</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">teaName</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">teaName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;chamomile&#39;</span><span class="p">;</span>
+
+<span class="c1">// Use where() to find only the items that return true</span>
+<span class="c1">// from the provided function.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">decaffeinatedTeas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">teas</span><span class="p">.</span><span class="n">where</span><span class="p">((</span><span class="n">tea</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">isDecaffeinated</span><span class="p">(</span><span class="n">tea</span><span class="p">));</span>
+<span class="c1">// or teas.where(isDecaffeinated)</span>
+
+<span class="c1">// Use any() to check whether at least one item in the</span>
+<span class="c1">// collection satisfies a condition.</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">teas</span><span class="p">.</span><span class="n">any</span><span class="p">(</span><span class="n">isDecaffeinated</span><span class="p">));</span>
+
+<span class="c1">// Use every() to check whether all the items in a</span>
+<span class="c1">// collection satisfy a condition.</span>
+<span class="k">assert</span><span class="p">(</span><span class="o">!</span><span class="n">teas</span><span class="p">.</span><span class="n">every</span><span class="p">(</span><span class="n">isDecaffeinated</span><span class="p">));</span>
+</code></pre></div>
+
+<h3 id="runes-runes-often-replaced-by-the-characters-api">Runes (Runes; often replaced by the characters API)</h3>
+<p>Runes: In Dart, runes are integers representing Unicode code points. They are used to handle characters that are not in the basic ASCII range. Dart has a <code>Runes</code> class for manipulating them.</p>
+<h3 id="symbols-symbol">Symbols (Symbol)</h3>
+<p>Symbols: In Dart, symbols are immutable, unique identifiers used mainly for reflection. Created using the <code>#</code> symbol, they allow you to access properties and methods dynamically.</p>
+<h3 id="the-value-null-null">The value null (Null)</h3>
+<p>The value null: In Dart, "null" indicates the absence of a value. It is the default value for variables that haven't been initialized and is used to represent the idea of "nothing" in the code.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../1.0_syntax_basics/" class="btn btn-neutral float-left" title="1.0 Syntax Basics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../9.1_how_to_git/" class="btn btn-neutral float-right" title="A: How to Git">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../1.0_syntax_basics/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../9.1_how_to_git/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

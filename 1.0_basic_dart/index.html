@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Dart Fundamentals - COMP4768: Software Development for Mobile Devices</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Dart Fundamentals";
+        var mkdocs_page_input_path = "1.0_basic_dart.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP4768: Software Development for Mobile Devices
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Module 0: Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.0_course_intro/">0.0 Course Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.1_getting_started/">0.1 Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.2_hello_world/">0.2 Hello World</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Module 1: Dart</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.0_syntax_basics/">1.0 Syntax Basics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.1_types/">1.1 Types</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendix</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../9.1_how_to_git/">A: How to Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../9.2_analysis_options.yaml/">B: Modify analysis_options.yaml to make it chill</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP4768: Software Development for Mobile Devices</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">Dart Fundamentals</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="dart-fundamentals">Dart Fundamentals</h1>
+<h2 id="basic-math">Basic Math</h2>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;dart:math&#39;</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="m">8</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="m">9</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<iframe src="https://dartpad.dev/embed-inline.html?id=99e6fec1100722e1f10531906dc0b0aa" style="width:100%; height:600px;"></iframe>
+
+<h2 id="adding-comments">Adding Comments</h2>
+<h2 id="single-line-comments">Single-line comments</h2>
+<p>A single-line comment begins with <code>//</code>. Everything between <code>//</code> and the
+end of line is ignored by the Dart compiler.</p>
+<?code-excerpt "misc/lib/language_tour/comments.dart (single-line-comments)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// TODO: refactor into an AbstractLlamaGreetingFactory?</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Welcome to my Llama farm!&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="multi-line-comments">Multi-line comments</h2>
+<p>A multi-line comment begins with <code>/*</code> and ends with <code>*/</code>. Everything
+between <code>/*</code> and <code>*/</code> is ignored by the Dart compiler (unless the
+comment is a documentation comment; see the next section). Multi-line
+comments can nest.</p>
+<?code-excerpt "misc/lib/language_tour/comments.dart (multi-line-comments)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cm">/*</span>
+<span class="cm">   * This is a lot of work. Consider raising chickens.</span>
+
+<span class="cm">  Llama larry = Llama();</span>
+<span class="cm">  larry.feed();</span>
+<span class="cm">  larry.exercise();</span>
+<span class="cm">  larry.clean();</span>
+<span class="cm">   */</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="documentation-comments">Documentation comments</h2>
+<p>Documentation comments are multi-line or single-line comments that begin
+with <code>///</code> or <code>/**</code>. Using <code>///</code> on consecutive lines has the same
+effect as a multi-line doc comment.</p>
+<p>Inside a documentation comment, the analyzer ignores all text
+unless it is enclosed in brackets. Using brackets, you can refer to
+classes, methods, fields, top-level variables, functions, and
+parameters. The names in brackets are resolved in the lexical scope of
+the documented program element.</p>
+<p>Here is an example of documentation comments with references to other
+classes and arguments:</p>
+<?code-excerpt "misc/lib/language_tour/comments.dart (doc-comments)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">/// A domesticated South American camelid (Lama glama).</span>
+<span class="c1">///</span>
+<span class="c1">/// Andean cultures have used llamas as meat and pack</span>
+<span class="c1">/// animals since pre-Hispanic times.</span>
+<span class="c1">///</span>
+<span class="c1">/// Just like any other animal, llamas need to eat,</span>
+<span class="c1">/// so don&#39;t forget to [feed] them some [Food].</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">Llama</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">String</span><span class="o">?</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">/// Feeds your llama [food].</span>
+<span class="w">  </span><span class="c1">///</span>
+<span class="w">  </span><span class="c1">/// The typical llama eats one bale of hay per week.</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">feed</span><span class="p">(</span><span class="n">Food</span><span class="w"> </span><span class="n">food</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">/// Exercises your llama with an [activity] for</span>
+<span class="w">  </span><span class="c1">/// [timeLimit] minutes.</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">exercise</span><span class="p">(</span><span class="n">Activity</span><span class="w"> </span><span class="n">activity</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">timeLimit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="variables">Variables</h2>
+<p>Here’s an example of creating a variable and initializing it:</p>
+<?code-excerpt "misc/lib/language_tour/variables.dart (var-decl)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Variables store references. The variable called <code>name</code> contains a
+reference to a <code>String</code> object with a value of “Bob”.</p>
+<p>The type of the <code>name</code> variable is inferred to be <code>String</code>,
+but you can change that type by specifying it.
+If an object isn't restricted to a single type,
+specify the <code>Object</code> type (or <code>dynamic</code> if necessary).</p>
+<?code-excerpt "misc/lib/language_tour/variables.dart (type-decl)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kt">Object</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Another option is to explicitly declare the type that would be inferred:</p>
+<?code-excerpt "misc/lib/language_tour/variables.dart (static-types)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kt">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<h2 id="numbers">Numbers</h2>
+<p>Dart numbers come in two flavors:</p>
+<p>[<code>int</code>][]</p>
+<p>:   Integer values no larger than 64 bits,
+    [depending on the platform][dart-numbers].
+    On native platforms, values can be from
+    -2<sup>63</sup> to 2<sup>63</sup> - 1.
+    On the web, integer values are represented as JavaScript numbers
+    (64-bit floating-point values with no fractional part)
+    and can be from -2<sup>53</sup> to 2<sup>53</sup> - 1.</p>
+<p>[<code>double</code>][]</p>
+<p>:   64-bit (double-precision) floating-point numbers, as specified by
+    the IEEE 754 standard.</p>
+<p>Both <code>int</code> and <code>double</code> are subtypes of [<code>num</code>][].
+The num type includes basic operators such as +, -, /, and *,
+and is also where you’ll find <code>abs()</code>,<code>ceil()</code>,
+and <code>floor()</code>, among other methods.
+(Bitwise operators, such as &gt;&gt;, are defined in the <code>int</code> class.)
+If num and its subtypes don’t have what you’re looking for, the
+[dart:math][] library might.</p>
+<p>Integers are numbers without a decimal point. Here are some examples of
+defining integer literals:</p>
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (integer-literals)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xDEADBEEF</span><span class="p">;</span>
+</code></pre></div>
+
+<p>If a number includes a decimal, it is a double. Here are some examples
+of defining double literals:</p>
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (double-literals)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.1</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">exponents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.42e5</span><span class="p">;</span>
+</code></pre></div>
+
+<p>You can also declare a variable as a num. If you do this, the variable
+can have both integer and double values.</p>
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (declare-num)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kt">num</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// x can have both int and double values</span>
+<span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="m">2.5</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Integer literals are automatically converted to doubles when necessary:</p>
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (int-to-double)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Equivalent to double z = 1.0.</span>
+</code></pre></div>
+
+<p>Here’s how you turn a string into a number, or vice versa:</p>
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (number-conversion)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">// String -&gt; int</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">one</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+
+<span class="c1">// String -&gt; double</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">onePointOne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;1.1&#39;</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">onePointOne</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1.1</span><span class="p">);</span>
+
+<span class="c1">// int -&gt; String</span>
+<span class="kt">String</span><span class="w"> </span><span class="n">oneAsString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.</span><span class="n">toString</span><span class="p">();</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">oneAsString</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">);</span>
+
+<span class="c1">// double -&gt; String</span>
+<span class="kt">String</span><span class="w"> </span><span class="n">piAsString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.14159</span><span class="p">.</span><span class="n">toStringAsFixed</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">piAsString</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;3.14&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>The <code>int</code> type specifies the traditional bitwise shift (<code>&lt;&lt;</code>, <code>&gt;&gt;</code>, <code>&gt;&gt;&gt;</code>),
+complement (<code>~</code>), AND (<code>&amp;</code>), OR (<code>|</code>), and XOR (<code>^</code>) operators,
+which are useful for manipulating and masking flags in bit fields.
+For example:</p>
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (bit-shifting)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="k">assert</span><span class="p">((</span><span class="m">3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// 0011 &lt;&lt; 1 == 0110</span>
+<span class="k">assert</span><span class="p">((</span><span class="m">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">7</span><span class="p">);</span><span class="w"> </span><span class="c1">// 0011 | 0100 == 0111</span>
+<span class="k">assert</span><span class="p">((</span><span class="m">3</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// 0011 &amp; 0100 == 0000</span>
+</code></pre></div>
+
+<p>For more examples, see the
+[bitwise and shift operator][] section.</p>
+<p>Literal numbers are compile-time constants.
+Many arithmetic expressions are also compile-time constants,
+as long as their operands are
+compile-time constants that evaluate to numbers.</p>
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-num)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">msPerSecond</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="n">secondsUntilRetry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="n">msUntilRetry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">secondsUntilRetry</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">msPerSecond</span><span class="p">;</span>
+</code></pre></div>
+
+<p>For more information, see [Numbers in Dart][dart-numbers].</p>
+<h2 id="variables_1">Variables</h2>
+<h3 id="what-is-a-variable">What is a Variable?</h3>
+<p>Think of a variable as a name tag for a piece of information. In Dart, you can create a variable like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Here, <code>name</code> is the variable, and it's holding the string <code>'Bob'</code>.</p>
+<h3 id="types-of-variables">Types of Variables</h3>
+<p>Dart can figure out the type of data you're storing, but you can also tell Dart the type:</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Or even:</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">Object</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p><strong>Note</strong>: It's generally better to let Dart figure out the type of variable you're using, especially for local variables.</p>
+<h3 id="null-safety">Null Safety</h3>
+<p>Dart has a feature called "null safety" to prevent errors when a variable doesn't have a value.</p>
+<h4 id="how-null-safety-works">How Null Safety Works</h4>
+<ol>
+<li>
+<p><strong>Nullable and Non-Nullable Types</strong>: You can specify if a variable can be <code>null</code>:</p>
+<p><code>dart
+String? name;  // Can be null or a string
+String name;   // Cannot be null</code></p>
+</li>
+<li>
+<p><strong>Initialization</strong>: You must give a value to non-nullable variables before using them.</p>
+</li>
+<li>
+<p><strong>Null Checks</strong>: Dart prevents you from using variables that could be <code>null</code> in a way that would cause errors.</p>
+</li>
+</ol>
+<h3 id="late-variables">Late Variables</h3>
+<p>Sometimes you know you'll give a variable a value later on, but Dart doesn't know that. Use <code>late</code> to tell Dart the value will be there later:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">late</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</code></pre></div>
+
+<p><strong>Warning</strong>: If you don't give <code>late</code> variables a value before using them, your program will crash.</p>
+<h3 id="default-values">Default Values</h3>
+<p>If you don't give a variable a value, and it's nullable, it will be <code>null</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="o">?</span><span class="w"> </span><span class="n">lineCount</span><span class="p">;</span>
+</code></pre></div>
+
+<h3 id="final-and-const-variables">Final and Const Variables</h3>
+<ul>
+<li>
+<p><code>final</code>: Use this when you know a variable's value won't change after it's set.</p>
+<p><code>dart
+final name = 'Bob';</code></p>
+</li>
+<li>
+<p><code>const</code>: Use this for variables that you know will never change and are set at the start of the program.</p>
+<p><code>dart
+const pi = 3.14159;</code></p>
+</li>
+</ul>
+<p><strong>Note</strong>: <code>final</code> and <code>const</code> variables can't be changed once they're set. Also, <code>const</code> variables are set at compile-time, meaning the value needs to be known as the program is being created.</p>
+<h2 id="strings">Strings</h2>
+<p>A Dart string (<code>String</code> object) holds a sequence of UTF-16 code units.
+You can use either
+single or double quotes to create a string:</p>
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (quoting)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Single quotes work well for string literals.&#39;</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Double quotes work just as well.&quot;</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;It</span><span class="se">\&#39;</span><span class="s1">s easy to escape the string delimiter.&#39;</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;It&#39;s even easier to use the other delimiter.&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>You can put the value of an expression inside a string by using
+<code>${</code><em><code>expression</code></em><code>}</code>. If the expression is an identifier, you can skip
+the {}. To get the string corresponding to an object, Dart calls the
+object’s <code>toString()</code> method.</p>
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (string-interpolation)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;string interpolation&#39;</span><span class="p">;</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="s1">&#39;Dart has </span><span class="si">$</span><span class="n">s</span><span class="s1">, which is very handy.&#39;</span><span class="w"> </span><span class="o">==</span>
+<span class="w">    </span><span class="s1">&#39;Dart has string interpolation, &#39;</span>
+<span class="w">        </span><span class="s1">&#39;which is very handy.&#39;</span><span class="p">);</span>
+<span class="k">assert</span><span class="p">(</span><span class="s1">&#39;That deserves all caps. &#39;</span>
+<span class="w">        </span><span class="s1">&#39;</span><span class="si">${</span><span class="n">s</span><span class="p">.</span><span class="n">toUpperCase</span><span class="p">()</span><span class="si">}</span><span class="s1"> is very handy!&#39;</span><span class="w"> </span><span class="o">==</span>
+<span class="w">    </span><span class="s1">&#39;That deserves all caps. &#39;</span>
+<span class="w">        </span><span class="s1">&#39;STRING INTERPOLATION is very handy!&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>{{site.alert.note}}
+  The <code>==</code> operator tests whether two objects are equivalent. Two
+  strings are equivalent if they contain the same sequence of code
+  units.
+{{site.alert.end}}</p>
+<p>You can concatenate strings using adjacent string literals or the <code>+</code>
+operator:</p>
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (adjacent-string-literals)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;String &#39;</span>
+<span class="w">    </span><span class="s1">&#39;concatenation&#39;</span>
+<span class="w">    </span><span class="s2">&quot; works even over line breaks.&quot;</span><span class="p">;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span>
+<span class="w">    </span><span class="s1">&#39;String concatenation works even over &#39;</span>
+<span class="w">        </span><span class="s1">&#39;line breaks.&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;The + operator &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;works, as well.&#39;</span><span class="p">;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">s2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;The + operator works, as well.&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>To create a multi-line string, use a triple quote with
+either single or double quotation marks:</p>
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (triple-quotes)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">You can create</span>
+<span class="s1">multi-line strings like this one.</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;This is also a</span>
+<span class="s2">multi-line string.&quot;&quot;&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>You can create a “raw” string by prefixing it with <code>r</code>:</p>
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (raw-strings)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">r&#39;In a raw string, not even \n gets special treatment.&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>See <a href="#runes-and-grapheme-clusters">Runes and grapheme clusters</a> for details on how
+to express Unicode characters in a string.</p>
+<p>Literal strings are compile-time constants,
+as long as any interpolated expression is a compile-time constant
+that evaluates to null or a numeric, string, or boolean value.</p>
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (string-literals)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">// These work in a const string.</span>
+<span class="k">const</span><span class="w"> </span><span class="n">aConstNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="n">aConstBool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="n">aConstString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;a constant string&#39;</span><span class="p">;</span>
+
+<span class="c1">// These do NOT work in a const string.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">aNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">aBool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">aString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;a string&#39;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="n">aConstList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">];</span>
+
+<span class="k">const</span><span class="w"> </span><span class="n">validConstString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;</span><span class="si">$</span><span class="n">aConstNum</span><span class="s1"> </span><span class="si">$</span><span class="n">aConstBool</span><span class="s1"> </span><span class="si">$</span><span class="n">aConstString</span><span class="s1">&#39;</span><span class="p">;</span>
+<span class="c1">// const invalidConstString = &#39;$aNum $aBool $aString $aConstList&#39;;</span>
+</code></pre></div>
+
+<p>For more information on using strings, check out
+<a href="/guides/libraries/library-tour#strings-and-regular-expressions">Strings and regular expressions</a>.</p>
+<h2 id="booleans">Booleans</h2>
+<p>To represent boolean values, Dart has a type named <code>bool</code>. Only two objects have type bool: the boolean literals <code>true</code> and <code>false</code>, which are both compile-time constants.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Check for an empty string.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">fullName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">fullName</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">);</span>
+
+<span class="c1">// Check for zero.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">hitPoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">hitPoints</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+
+<span class="c1">// Check for null.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">unicorn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">unicorn</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+
+<span class="c1">// Check for NaN.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">iMeantToDoThis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">iMeantToDoThis</span><span class="p">.</span><span class="n">isNaN</span><span class="p">);</span>
+</code></pre></div>
+
+<h2 id="numerical-values">Numerical Values</h2>
+<h2 id="text-strings">Text Strings</h2>
+<h2 id="true-or-false-values">True or False Values</h2>
+<h2 id="lists">Lists</h2>
+<h2 id="sets">Sets</h2>
+<h2 id="maps">Maps</h2>
+<h2 id="operators">Operators</h2>
+<h2 id="const-and-final">Const and Final</h2>
+<h2 id="static-and-dynamic">Static and Dynamic</h2>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

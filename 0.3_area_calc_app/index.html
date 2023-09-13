@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Area Calculation App - COMP4768: Software Development for Mobile Devices</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Area Calculation App";
+        var mkdocs_page_input_path = "0.3_area_calc_app.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP4768: Software Development for Mobile Devices
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Module 0: Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.0_course_intro/">0.0 Course Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.1_getting_started/">0.1 Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.2_hello_world/">0.2 Hello World</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Module 1: Dart</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.0_syntax_basics/">1.0 Syntax Basics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.1_types/">1.1 Types</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendix</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../9.1_how_to_git/">A: How to Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../9.2_analysis_options.yaml/">B: Modify analysis_options.yaml to make it chill</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP4768: Software Development for Mobile Devices</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">Area Calculation App</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="area-calculation-app">Area Calculation App</h1>
+<p>In this tutorial, you'll create an app to calculate area, gaining hands-on experience with key Flutter widgets, including:</p>
+<ul>
+<li>ElevatedButton</li>
+<li>TextField</li>
+<li>Column</li>
+<li>StatefulWidget</li>
+<li>StatelessWidget</li>
+</ul>
+<p>Here are some previews of the completed app:</p>
+<p><img alt="Preview Image" src="../assets/0.3.1.png" width="300" />
+<img alt="Alt text" src="../assets/0.3.2.png" width="300" /></p>
+<p><strong>Ready to Begin?</strong></p>
+<h2 id="step-1-kickoff">Step 1: Kickoff</h2>
+<ol>
+<li>Launch a new Flutter project using Android Studio. For step-by-step guidance, you can refer to <a href="https://docs.flutter.dev/get-started/test-drive?tab=androidstudio">this official Flutter tutorial</a>. Make sure that under Project Type, you select "Empty Project". See pic below:
+<img alt="Alt text" src="../assets/0.3.3.png" /></li>
+<li>Go to the <code>main.dart</code> file in the <code>lib</code> folder. Your code should resemble the following.</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">runApp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">MainApp</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">MainApp</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatelessWidget</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">MainApp</span><span class="p">({</span><span class="k">super</span><span class="p">.</span><span class="n">key</span><span class="p">});</span>
+
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">MaterialApp</span><span class="p">(</span>
+<span class="w">      </span><span class="nl">home:</span><span class="w"> </span><span class="n">Scaffold</span><span class="p">(</span>
+<span class="w">        </span><span class="nl">body:</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span>
+<span class="w">          </span><span class="nl">child:</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">),</span>
+<span class="w">        </span><span class="p">),</span>
+<span class="w">      </span><span class="p">),</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The code creates a basic Flutter app that displays "Hello World!" on the screen. It starts by importing Flutter's Material Design library. The <code>MainApp</code> class defines the app's layout, which includes a centered text widget inside a scaffold. When you run the app, it launches this layout.</p>
+<h2 id="step-2-setting-up-homescreen">Step 2: Setting Up <code>HomeScreen</code></h2>
+<p>In this phase, we'll construct a new <code>StatefulWidget</code> named <code>HomePage</code>, which will serve as the main screen for our application.</p>
+<ul>
+<li>First, generate a new file named <code>HomePage.dart</code> within the <code>lib</code> directory.</li>
+<li>Import the <code>material.dart</code> library and utilize the <code>stful</code> shortcut to create a standard stateful widget. Your <code>HomePage.dart</code> file should resemble the following code:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">HomePage</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatefulWidget</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">HomePage</span><span class="p">({</span><span class="k">super</span><span class="p">.</span><span class="n">key</span><span class="p">});</span>
+
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="n">State</span><span class="o">&lt;</span><span class="n">HomePage</span><span class="o">&gt;</span><span class="w"> </span><span class="n">createState</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_HomePageState</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">_HomePageState</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">State</span><span class="o">&lt;</span><span class="n">HomePage</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Placeholder</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The code sets up a basic Flutter screen called <code>HomePage</code>. It's a stateful widget, meaning it can change over time. The <code>HomePage</code> class defines the structure, while <code>_HomePageState</code> handles what appears on the screen. Right now, it just shows a placeholder, indicating where future content will go.</p>
+<ul>
+<li>Return to the <code>main.dart</code> file and import the <code>HomePage.dart</code> file. Replace the existing child widget with the <code>HomeScreen</code> widget. After making these changes, run the app to confirm that <code>main.dart</code> now displays the content from <code>HomePage.dart</code>.</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="p">...</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;HomePage.dart&#39;</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="nl">body:</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span>
+<span class="w">    </span><span class="nl">child:</span><span class="w"> </span><span class="n">HomePage</span><span class="p">(),</span>
+<span class="p">),</span>
+<span class="p">...</span>
+</code></pre></div>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

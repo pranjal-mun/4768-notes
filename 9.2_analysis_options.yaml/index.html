@@ -48,6 +48,13 @@
                   <li class="toctree-l1"><a class="reference internal" href="../0.2_hello_world/">0.2 Hello World</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Module 1: Dart</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.0_syntax_basics/">1.0 Syntax Basics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.1_types/">1.1 Types</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Appendix</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../9.1_how_to_git/">A: How to Git</a>
@@ -83,16 +90,7 @@
 <!-- ![Intro](assets/intro_slides/Slide11.jpeg){ width="600" } -->
 <p><img alt="analysis_options.yaml file location" src="../assets/image2.png" width="400" /></p>
 <p><strong>Replace its contents with the following:</strong></p>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">package:flutter_lints/flutter.yaml</span>
+<div class="codehilite"><pre><span></span><code><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">package:flutter_lints/flutter.yaml</span>
 
 <span class="nt">linter</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
@@ -102,7 +100,7 @@
 <span class="w">    </span><span class="nt">prefer_const_literals_to_create_immutables</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">prefer_const_constructors_in_immutables</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">avoid_print</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 
 <p>This file determines how strict Flutter should be when analyzing your code. Since this is your first foray into Flutter, you're telling the analyzer to take it easy. You can always tune this later. In fact, as you get closer to publishing an actual production app, you will almost certainly want to make the analyzer stricter than this.</p>
               

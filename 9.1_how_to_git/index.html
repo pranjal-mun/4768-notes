@@ -48,6 +48,13 @@
                   <li class="toctree-l1"><a class="reference internal" href="../0.2_hello_world/">0.2 Hello World</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Module 1: Dart</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.0_syntax_basics/">1.0 Syntax Basics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.1_types/">1.1 Types</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Appendix</span></p>
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">A: How to Git</a>
@@ -112,27 +119,27 @@
 <li>Navigate to the directory where you want to create your new Flutter project.</li>
 <li>Run the following command to create a new Flutter project:</li>
 </ol>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>flutter<span class="w"> </span>create<span class="w"> </span>demo_project
-</code></pre></div></td></tr></table></div>
+<div class="codehilite"><pre><span></span><code>flutter<span class="w"> </span>create<span class="w"> </span>demo_project
+</code></pre></div>
 
 <h2 id="step-2-navigate-to-the-project-directory">Step 2: Navigate to the Project Directory</h2>
 <p>Change the directory to the newly created Flutter project:</p>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>demo_project
-</code></pre></div></td></tr></table></div>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>demo_project
+</code></pre></div>
 
 <h2 id="step-3-initialize-a-git-repository">Step 3: Initialize a Git Repository</h2>
 <p>Initialize a new Git repository in your project directory:</p>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>init
-</code></pre></div></td></tr></table></div>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>init
+</code></pre></div>
 
 <h2 id="step-4-add-files-to-git-and-make-initial-commit">Step 4: Add Files to Git and Make Initial Commit</h2>
 <p>Add all the project files to the Git repository:</p>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
-</code></pre></div></td></tr></table></div>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+</code></pre></div>
 
 <p>Make your initial commit:</p>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
-</code></pre></div></td></tr></table></div>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
+</code></pre></div>
 
 <h2 id="step-5-link-to-github-repository">Step 5: Link to GitHub Repository</h2>
 <ol>
@@ -140,18 +147,18 @@
 <li>Copy the repository URL.</li>
 <li>Link your local repository to the GitHub repository:</li>
 </ol>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/yourusername/demo_project.git
-</code></pre></div></td></tr></table></div>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/yourusername/demo_project.git
+</code></pre></div>
 
 <h2 id="step-6-rename-the-default-branch-optional">Step 6: Rename the Default Branch (Optional)</h2>
 <p>Rename your default branch to <code>main</code> (this is optional and based on your preference):</p>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>main
-</code></pre></div></td></tr></table></div>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>main
+</code></pre></div>
 
 <h2 id="step-7-push-to-github">Step 7: Push to GitHub</h2>
 <p>Push your local repository to GitHub:</p>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
-</code></pre></div></td></tr></table></div>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
 
 <h2 id="step-8-open-project-in-pycharm">Step 8: Open Project in PyCharm</h2>
 <ol>
@@ -164,7 +171,7 @@
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../0.2_hello_world/" class="btn btn-neutral float-left" title="0.2 Hello World"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../1.1_types/" class="btn btn-neutral float-left" title="1.1 Types"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../9.2_analysis_options.yaml/" class="btn btn-neutral float-right" title="B: Modify analysis_options.yaml to make it chill">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -188,7 +195,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../0.2_hello_world/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../1.1_types/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../9.2_analysis_options.yaml/" style="color: #fcfcfc">Next &raquo;</a></span>
