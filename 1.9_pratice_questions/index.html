@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>1.9 Practice Questions - COMP4768: Software Development for Mobile Devices</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "1.9 Practice Questions";
+        var mkdocs_page_input_path = "1.9_pratice_questions.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP4768: Software Development for Mobile Devices
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Module 0: Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.0_course_intro/">0.0 Course Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.1_getting_started/">0.1 Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.2_hello_world/">0.2 Hello World</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Module 1: Dart</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../1.0_syntax_basics/">1.0 Syntax Basics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.1_types/">1.1 Types</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">1.9 Practice Questions</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#postal-codes">Postal Codes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#converting-between-human-years-and-dog-years">Converting Between Human Years and Dog Years</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#problem-statement">Problem Statement:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#test-cases">Test Cases:</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendix</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../9.1_how_to_git/">A: How to Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../9.2_analysis_options.yaml/">B: Modify analysis_options.yaml to make it chill</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP4768: Software Development for Mobile Devices</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Module 1: Dart &raquo;</li>
+      <li class="breadcrumb-item active">1.9 Practice Questions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sample-questions">Sample Questions</h1>
+<h2 id="postal-codes">Postal Codes</h2>
+<p>In a Canadian postal code, the first, third, and fifth characters are letters, while the second, fourth, and sixth characters are numbers. The province can be determined from the first character of a postal code, as shown in the following table. No valid postal codes currently begin with D, F, I, O, Q, U, W, or Z.</p>
+<table>
+<thead>
+<tr>
+<th>Province</th>
+<th>First character(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Newfoundland</td>
+<td>A</td>
+</tr>
+<tr>
+<td>Nova Scotia</td>
+<td>B</td>
+</tr>
+<tr>
+<td>Prince Edward Island</td>
+<td>C</td>
+</tr>
+<tr>
+<td>New Brunswick</td>
+<td>E</td>
+</tr>
+<tr>
+<td>Quebec</td>
+<td>G, H, and J</td>
+</tr>
+<tr>
+<td>Ontario</td>
+<td>K, L, M, N, and P</td>
+</tr>
+<tr>
+<td>Manitoba</td>
+<td>R</td>
+</tr>
+<tr>
+<td>Saskatchewan</td>
+<td>S</td>
+</tr>
+<tr>
+<td>Alberta</td>
+<td>T</td>
+</tr>
+<tr>
+<td>British Columbia</td>
+<td>V</td>
+</tr>
+<tr>
+<td>Nunavut</td>
+<td>X</td>
+</tr>
+<tr>
+<td>Northwest Territories</td>
+<td>X</td>
+</tr>
+<tr>
+<td>Yukon</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<p>The second character in a postal code identifies whether the address is rural or urban. If that character is a '0', then the address is rural. Otherwise, it is urban.</p>
+<p>Write a Dart function that takes a postal code as an argument and returns the province name along with whether the address is urban or rural. For example, if the function receives 'T2N 1N4', it should return that the postal code is for an urban address in Alberta. If it receives 'X0A 1B2', it should return that the postal code is for a rural address in Nunavut or Northwest Territories. Use a Map to map from the first character of the postal code to the province name. Display a meaningful error message if the postal code begins with an invalid character.</p>
+<p><a href="https://dartpad.dev/?id=63b895b1308235e6bf3097f67cf47081">Solution</a></p>
+<h2 id="converting-between-human-years-and-dog-years">Converting Between Human Years and Dog Years</h2>
+<h4 id="problem-statement">Problem Statement:</h4>
+<p>It's commonly said that one human year is equivalent to 7 dog years. However, this simple conversion doesn't account for the fact that dogs reach adulthood in about two years. To make the conversion more accurate, some suggest counting each of the first two human years as 10.5 dog years, and each additional human year as 4 dog years.</p>
+<p>Your task is to write a Dart program that performs conversions between human years and dog years.</p>
+<h4 id="requirements">Requirements:</h4>
+<ol>
+<li>
+<p>Create a function named <code>humanToDogYears</code> that takes a <code>double</code> representing the human years and returns a <code>double</code> representing the equivalent dog years.</p>
+</li>
+<li>
+<p>Create another function named <code>dogToHumanYears</code> that takes a <code>double</code> representing the dog years and returns a <code>double</code> representing the equivalent human years.</p>
+</li>
+<li>
+<p>Both functions should handle the following scenarios:</p>
+<ul>
+<li>
+<p><strong>For <code>humanToDogYears</code>:</strong></p>
+<ul>
+<li>For conversions of less than two human years, each human year should be counted as 10.5 dog years.</li>
+<li>For conversions of two or more human years, the first two years should be counted as 21 dog years (10.5 * 2), and each additional year should be counted as 4 dog years.</li>
+</ul>
+</li>
+<li>
+<p><strong>For <code>dogToHumanYears</code>:</strong></p>
+<ul>
+<li>For conversions of less than or equal to 21 dog years, each dog year should be counted as 1/10.5 human years.</li>
+<li>For conversions of more than 21 dog years, the first 21 dog years should be counted as 2 human years, and each additional dog year should be counted as 1/4 human years.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>If the user enters a negative number in either function, the function should display an appropriate error message and return <code>-1</code>.</p>
+</li>
+</ol>
+<h4 id="test-cases">Test Cases:</h4>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Test the functions with different years</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">humanToDogYears</span><span class="p">(</span><span class="m">1</span><span class="p">));</span><span class="w">  </span><span class="c1">// Should print 10.5</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">humanToDogYears</span><span class="p">(</span><span class="m">2</span><span class="p">));</span><span class="w">  </span><span class="c1">// Should print 21.0</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">humanToDogYears</span><span class="p">(</span><span class="m">3</span><span class="p">));</span><span class="w">  </span><span class="c1">// Should print 25.0</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">humanToDogYears</span><span class="p">(</span><span class="o">-</span><span class="m">1</span><span class="p">));</span><span class="w"> </span><span class="c1">// Should print &quot;Invalid input. Please enter a non-negative number.&quot;</span>
+
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">dogToHumanYears</span><span class="p">(</span><span class="m">10.5</span><span class="p">));</span><span class="w"> </span><span class="c1">// Should print 1.0</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">dogToHumanYears</span><span class="p">(</span><span class="m">21</span><span class="p">));</span><span class="w">   </span><span class="c1">// Should print 2.0</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">dogToHumanYears</span><span class="p">(</span><span class="m">25</span><span class="p">));</span><span class="w">   </span><span class="c1">// Should print 3.0</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">dogToHumanYears</span><span class="p">(</span><span class="o">-</span><span class="m">1</span><span class="p">));</span><span class="w">   </span><span class="c1">// Should print &quot;Invalid input. Please enter a non-negative number.&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><a href="https://dartpad.dev/?id=7239cfa9750abb208f3681e8a6dc5a26">Solution</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../1.1_types/" class="btn btn-neutral float-left" title="1.1 Types"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../9.1_how_to_git/" class="btn btn-neutral float-right" title="A: How to Git">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../1.1_types/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../9.1_how_to_git/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
