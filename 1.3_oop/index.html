@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>1.3 OOP - COMP4768: Software Development for Mobile Devices</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "1.3 OOP";
+        var mkdocs_page_input_path = "1.3_oop.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> COMP4768: Software Development for Mobile Devices
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Module 0: Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.0_course_intro/">0.0 Course Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.1_getting_started/">0.1 Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../0.2_hello_world/">0.2 Hello World</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Module 1: Dart</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../1.0_syntax_basics/">1.0 Syntax Basics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.1_types/">1.1 Types</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.2_functions_controlFlow_errorHandling/">1.2 Functions, Control Flow & Error Handling</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">1.3 OOP</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#using-class-members">Using class members</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-constructors">Using constructors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getting-an-objects-type">Getting an object's type</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#instance-variables">Instance variables</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#what-are-instance-variables">What are Instance Variables?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-to-declare-instance-variables">How to Declare Instance Variables</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#default-value">Default Value</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getters-and-setters">Getters and Setters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#final-instance-variables">Final Instance Variables</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-implicit-interfaces">What are Implicit Interfaces?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-use-interfaces">Why Use Interfaces?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-implement-an-interface">How to Implement an Interface?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-explained">Example Explained</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#multiple-interfaces">Multiple Interfaces</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class-variables-and-methods-in-dart">Class Variables and Methods in Dart</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#what-are-static-variables">What are Static Variables?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-are-static-methods">What are Static Methods?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#when-to-use-static-methods">When to Use Static Methods?</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#constructors">Constructors</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-constructor">What is a Constructor?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-constructor">Basic Constructor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-this-keyword">The this Keyword</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#initializing-formal-parameters">Initializing Formal Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#default-constructor">Default Constructor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#named-constructors">Named Constructors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#superclass-constructors">Superclass Constructors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#initializer-list">Initializer List</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#redirecting-constructors">Redirecting Constructors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#constant-constructors">Constant Constructors</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#methods">Methods</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#instance-methods">Instance methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operators">Operators</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getters-and-setters_1">Getters and Setters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#abstract-methods">Abstract Methods</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inheritance">Inheritance</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#extend-a-class">Extend a Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#override-members">Override Members</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rules-for-overriding">Rules for Overriding</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mixins">Mixins</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-mixins">What are Mixins?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#defining-a-mixin">Defining a Mixin</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#restricting-mixin-usage">Restricting Mixin Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class-mixin-or-mixin-class">class, mixin, or mixin class?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mixin-example">Mixin Example</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#abstract-mixin-class">Abstract Mixin Class</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enumerated-types">Enumerated Types</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-enums">Simple Enums</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#enhanced-enums">Enhanced Enums</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-enums">Using Enums</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.4_async/">1.4 Async</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.5_null_safety/">1.5 Null Safety</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1.9_pratice_questions/">1.9 Practice Questions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Appendix</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../9.1_how_to_git/">A: How to Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../9.2_analysis_options.yaml/">B: Modify analysis_options.yaml to make it chill</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">COMP4768: Software Development for Mobile Devices</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Module 1: Dart &raquo;</li>
+      <li class="breadcrumb-item active">1.3 OOP</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="oop">OOP</h1>
+<h2 id="classes"><a href="https://dart.dev/language/classes">Classes</a></h2>
+<ul>
+<li>Dart is an object-oriented language with classes and mixin-based inheritance.</li>
+<li>Every object is an instance of a class, and all classes except <code>Null</code> descend from <a href="https://api.dart.dev/stable/3.1.2/dart-core/Object-class.html"><code>Object</code></a>.</li>
+<li><em>Mixin-based inheritance</em> means that although every class has exactly one superclass, a class body can be reused in
+multiple class hierarchies.</li>
+</ul>
+<h3 id="using-class-members">Using class members</h3>
+<p>Objects have <em>members</em> consisting of functions and data (<em>methods</em> and
+<em>instance variables</em>, respectively). When you call a method, you <em>invoke</em>
+it on an object: the method has access to that object’s functions and
+data.</p>
+<p>Use a dot (<code>.</code>) to refer to an instance variable or method:</p>
+<?code-excerpt "misc/test/language_tour/classes_test.dart (object-members)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+
+<span class="c1">// Get the value of y.</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+
+<span class="c1">// Invoke distanceTo() on p.</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">distanceTo</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">));</span>
+</code></pre></div>
+
+<p>Use <code>?.</code> instead of <code>.</code> to avoid an exception
+when the leftmost operand is null:</p>
+<?code-excerpt "misc/test/language_tour/classes_test.dart (safe-member-access)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">// If p is non-null, set a variable equal to its y value.</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">?</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+</code></pre></div>
+
+<h3 id="using-constructors">Using constructors</h3>
+<p>You can create an object using a <em>constructor</em>.
+Constructor names can be either <code><em>ClassName</em></code> or
+<code><em>ClassName</em>.<em>identifier</em></code>. For example,
+the following code creates <code>Point</code> objects using the
+<code>Point()</code> and <code>Point.fromJson()</code> constructors:</p>
+<?code-excerpt "misc/test/language_tour/classes_test.dart (object-creation)" replace="/ as .*?;/;/g"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Point</span><span class="p">.</span><span class="n">fromJson</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="o">:</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="o">:</span><span class="w"> </span><span class="m">2</span><span class="p">});</span>
+</code></pre></div>
+
+<p>The following code has the same effect, but
+uses the optional <code>new</code> keyword before the constructor name:</p>
+<?code-excerpt "misc/test/language_tour/classes_test.dart (object-creation-new)" replace="/ as .*?;/;/g"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">.</span><span class="n">fromJson</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="o">:</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="o">:</span><span class="w"> </span><span class="m">2</span><span class="p">});</span>
+</code></pre></div>
+
+<p>Some classes provide [constant constructors][].
+To create a compile-time constant using a constant constructor,
+put the <code>const</code> keyword before the constructor name:</p>
+<?code-excerpt "misc/test/language_tour/classes_test.dart (const)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ImmutablePoint</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+</code></pre></div>
+
+<h3 id="getting-an-objects-type">Getting an object's type</h3>
+<p>To get an object's type at runtime, you can use the <code>Object</code> property <code>runtimeType</code>, which returns a <code>Type</code> object.</p>
+<?code-excerpt "misc/test/language_tour/classes_test.dart (runtimeType)"?>
+
+<div class="codehilite"><pre><span></span><code><span class="n">print</span><span class="p">(</span><span class="s1">&#39;The type of a is </span><span class="si">${</span><span class="n">a</span><span class="p">.</span><span class="n">runtimeType</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<p><strong>Note:</strong>
+Use a <a href="https://dart.dev/language/operators#type-test-operators">type test operator</a> rather than <code>runtimeType</code> to test an object's type.
+In production environments, the test <code>object is Type</code> is more stable than the test <code>object.runtimeType == Type</code>.</p>
+<p><strong>Up to here, you've seen how to <em>use</em> classes. The rest of this section shows how to <em>implement</em> classes.</strong></p>
+<h3 id="instance-variables">Instance variables</h3>
+<h4 id="what-are-instance-variables">What are Instance Variables?</h4>
+<p>Instance variables are variables that belong to an object (an instance of a class). They hold the data that represents the state of the object.</p>
+<h4 id="how-to-declare-instance-variables">How to Declare Instance Variables</h4>
+<p>In Dart, you declare instance variables inside a class. You can also set their initial values.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">double</span><span class="o">?</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">  </span><span class="c1">// x is initially null</span>
+<span class="w">  </span><span class="kt">double</span><span class="o">?</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w">  </span><span class="c1">// y is initially null</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// z is initially 0</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="default-value">Default Value</h4>
+<p>If you don't set an initial value, the default value is <code>null</code>.</p>
+<h4 id="getters-and-setters">Getters and Setters</h4>
+<p>Dart automatically creates getter and setter methods for instance variables. You can use these to read or modify the value of an instance variable.</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Point</span><span class="p">();</span>
+<span class="w">  </span><span class="n">point</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">;</span><span class="w">  </span><span class="c1">// sets x to 4</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">point</span><span class="p">.</span><span class="n">x</span><span class="p">);</span><span class="w">  </span><span class="c1">// prints 4</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="final-instance-variables">Final Instance Variables</h4>
+<p>If you want a variable that can be set only once, you can use <code>final</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">ProfileMark</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">DateTime</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">now</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">ProfileMark</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="what-are-implicit-interfaces">What are Implicit Interfaces?</h3>
+<p>In Dart, every class you create also automatically defines an "interface". This interface includes all the methods and properties that the class has. It's like a blueprint of what the class can do, but without the actual code that performs the actions.</p>
+<h3 id="why-use-interfaces">Why Use Interfaces?</h3>
+<p>Let's say you have a class <code>B</code> and you want to create another class <code>A</code> that can do everything <code>B</code> can do, but in a different way. In this case, class <code>A</code> can "implement" the interface of <code>B</code>. This means <code>A</code> will have to provide its own code for all the methods and properties that <code>B</code> has.</p>
+<h3 id="how-to-implement-an-interface">How to Implement an Interface?</h3>
+<p>You use the <code>implements</code> keyword to specify that a class should follow the blueprint of an interface. Then, you write the code for each method and property that the interface requires.</p>
+<h3 id="example-explained">Example Explained</h3>
+<p>Here's a simple example:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// This is a class called Person. It has a method called greet().</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">_name</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Person</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">_name</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">String</span><span class="w"> </span><span class="n">greet</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">who</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;Hello, </span><span class="si">$</span><span class="n">who</span><span class="s1">. I am </span><span class="si">$</span><span class="n">_name</span><span class="s1">.&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// This is another class called Impostor. It &quot;implements&quot; Person.</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">Impostor</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">String</span><span class="w"> </span><span class="kd">get</span><span class="w"> </span><span class="n">_name</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">String</span><span class="w"> </span><span class="n">greet</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">who</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;Hi </span><span class="si">$</span><span class="n">who</span><span class="s1">. Do you know who I am?&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// This function takes a Person object and calls its greet() method.</span>
+<span class="kt">String</span><span class="w"> </span><span class="n">greetBob</span><span class="p">(</span><span class="n">Person</span><span class="w"> </span><span class="n">person</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">greet</span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>In this example, <code>Impostor</code> is like a "fake" <code>Person</code>. It has to have a <code>greet()</code> method because it implements <code>Person</code>, but it can say something different.</p>
+<h3 id="multiple-interfaces">Multiple Interfaces</h3>
+<p>A class can implement more than one interface. For example:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="p">,</span><span class="w"> </span><span class="n">Location</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/*...*/</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+
+<p>Here, <code>Point</code> has to follow the blueprints of both <code>Comparable</code> and <code>Location</code>.</p>
+<hr />
+<h3 id="class-variables-and-methods-in-dart">Class Variables and Methods in Dart</h3>
+<p>Use the <code>static</code> keyword to implement class-wide variables and methods.</p>
+<h4 id="what-are-static-variables">What are Static Variables?</h4>
+<p>Static variables are variables that belong to the class itself, not to any specific instance of the class. You can think of them as "shared" variables that all instances of the class can access. You use the <code>static</code> keyword to declare them.</p>
+<p>For example, if you have a <code>Queue</code> class and you want all <code>Queue</code> objects to know the initial capacity, you can use a static variable:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Queue</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">initialCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>To access this variable, you use the class name:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">print</span><span class="p">(</span><span class="n">Queue</span><span class="p">.</span><span class="n">initialCapacity</span><span class="p">);</span><span class="w">  </span><span class="c1">// Output will be 16</span>
+</code></pre></div>
+
+<p>Note: Static variables are only initialized when they are used for the first time.</p>
+<h4 id="what-are-static-methods">What are Static Methods?</h4>
+<p>Static methods are methods that belong to the class, not to any specific instance. These methods can't access instance variables because they don't operate on an instance of the class. However, they can access static variables.</p>
+<p>For example, if you want a method to calculate the distance between two points, you can make it a static method:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;dart:math&#39;</span><span class="p">;</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Point</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">distanceBetween</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dy</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>To use this method, you call it on the class itself, not on an instance:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Point</span><span class="p">.</span><span class="n">distanceBetween</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+
+<h4 id="when-to-use-static-methods">When to Use Static Methods?</h4>
+<p>Static methods are useful for utility functions that don't need to access any instance variables. Dart also allows you to use static methods as compile-time constants.</p>
+<p>I hope this makes the concept of static variables and methods clear! Would you like to know more about any specific part?</p>
+<hr />
+<h2 id="constructors">Constructors</h2>
+<h4 id="what-is-a-constructor">What is a Constructor?</h4>
+<p>A constructor is a special function in a class that helps create an object (instance) of that class. It usually initializes the instance variables.</p>
+<h4 id="basic-constructor">Basic Constructor</h4>
+<p>Here's a simple constructor for a <code>Point</code> class:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">Point</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="the-this-keyword">The <code>this</code> Keyword</h4>
+<p>The <code>this</code> keyword refers to the current instance of the class. Use it only when you need to distinguish between instance variables and constructor parameters with the same name.</p>
+<h4 id="initializing-formal-parameters">Initializing Formal Parameters</h4>
+<p>Dart has a shorthand for directly assigning constructor arguments to instance variables:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">Point</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="default-constructor">Default Constructor</h4>
+<p>If you don't define any constructor, Dart provides a default one with no arguments. The default constructor has no arguments and invokes the no-argument constructor in the superclass.</p>
+<h4 id="named-constructors">Named Constructors</h4>
+<p>You can have more than one constructor by giving them different names:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">Point</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Named constructor</span>
+<span class="w">  </span><span class="n">Point</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="kt">String</span><span class="w"> </span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;(</span><span class="si">$</span><span class="n">x</span><span class="s2">, </span><span class="si">$</span><span class="n">y</span><span class="s2">)&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Point</span><span class="p">.</span><span class="n">origin</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">o</span><span class="p">);</span><span class="w"> </span><span class="c1">// prints (0, 0)</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="c1">// prints (2, 3)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="superclass-constructors">Superclass Constructors</h4>
+<p>In a subclass, you can call a constructor from the superclass using <code>super</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Employee</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Employee</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">super</span><span class="p">.</span><span class="n">fromJson</span><span class="p">(</span><span class="n">fetchDefaultData</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="initializer-list">Initializer List</h4>
+<p>You can set initial values for instance variables before the constructor body runs:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">Point</span><span class="p">.</span><span class="n">fromJson</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">json</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">!</span><span class="p">,</span>
+<span class="w">      </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">!</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;In Point.fromJson(): (</span><span class="si">$</span><span class="n">x</span><span class="s1">, </span><span class="si">$</span><span class="n">y</span><span class="s1">)&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="redirecting-constructors">Redirecting Constructors</h4>
+<p>You can make a constructor redirect to another constructor in the same class:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">Point</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Point</span><span class="p">.</span><span class="n">alongXAxis</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="constant-constructors">Constant Constructors</h4>
+<p>For objects that never change, you can define a <code>const</code> constructor:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">ImmutablePoint</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">ImmutablePoint</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h2 id="methods">Methods</h2>
+<p>Methods are functions that provide behavior for an object.</p>
+<h3 id="instance-methods">Instance methods</h3>
+<p>Instance methods on objects can access instance variables and <code>this</code>. The <code>distanceTo()</code> method in the following sample is an example of an instance method:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;dart:math&#39;</span><span class="p">;</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">Point</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">distanceTo</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dy</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="operators">Operators</h3>
+<p>Dart allows you to define custom behavior for operators like <code>+</code>, <code>-</code>, <code>==</code>, etc. You use the <code>operator</code> keyword to define them.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Vector</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">Vector</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">Vector</span><span class="w"> </span><span class="kd">operator</span><span class="w"> </span><span class="o">+</span><span class="p">(</span><span class="n">Vector</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Vector</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Vector</span><span class="w"> </span><span class="kd">operator</span><span class="w"> </span><span class="o">-</span><span class="p">(</span><span class="n">Vector</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Vector</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="kd">operator</span><span class="w"> </span><span class="o">==</span><span class="p">(</span><span class="kt">Object</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="n">other</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="kd">get</span><span class="w"> </span><span class="n">hashCode</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">Object</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">assert</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Vector</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">));</span>
+<span class="w">  </span><span class="k">assert</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Vector</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="getters-and-setters_1">Getters and Setters</h3>
+<p>Getters and setters allow you to define custom behavior for reading and writing properties. Dart automatically provides getters and setters for instance variables, but you can override them.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">Rectangle</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Define two calculated properties: right and bottom.</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="kd">get</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">width</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">set</span><span class="w"> </span><span class="n">right</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">width</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="kd">get</span><span class="w"> </span><span class="n">bottom</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">height</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">set</span><span class="w"> </span><span class="n">bottom</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">height</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">rect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">);</span>
+<span class="w">  </span><span class="k">assert</span><span class="p">(</span><span class="n">rect</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
+<span class="w">  </span><span class="n">rect</span><span class="p">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span><span class="p">;</span>
+<span class="w">  </span><span class="k">assert</span><span class="p">(</span><span class="n">rect</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="m">8</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="abstract-methods">Abstract Methods</h3>
+<p>Abstract methods define the structure of a method but don't provide an implementation. They can only exist in abstract classes.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Doer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">doSomething</span><span class="p">();</span><span class="w"> </span><span class="c1">// Abstract method</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">EffectiveDoer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Doer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">doSomething</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Implementation here</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="inheritance">Inheritance</h2>
+<h3 id="extend-a-class">Extend a Class</h3>
+<p>To make a subclass, use <code>extends</code>. Use <code>super</code> to call the parent class:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">TV</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">turnOn</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// some code</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">SmartTV</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">TV</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">turnOn</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="n">turnOn</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// extra code</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="override-members">Override Members</h3>
+<p>You can change methods, getters, and setters in subclasses with <code>@override</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">TV</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">set</span><span class="w"> </span><span class="n">contrast</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">SmartTV</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">TV</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="kd">set</span><span class="w"> </span><span class="n">contrast</span><span class="p">(</span><span class="kt">num</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="rules-for-overriding">Rules for Overriding</h3>
+<ol>
+<li>Return type must match or be a subtype.</li>
+<li>Argument types must match or be a supertype.</li>
+<li>Same number of positional parameters.</li>
+</ol>
+<h2 id="mixins">Mixins</h2>
+<h4 id="what-are-mixins">What are Mixins?</h4>
+<p>Mixins let you reuse code across multiple classes. Use the <code>with</code> keyword to include one or more mixins in a class.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Musician</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Performer</span><span class="w"> </span><span class="kd">with</span><span class="w"> </span><span class="n">Musical</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">Maestro</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="kd">with</span><span class="w"> </span><span class="n">Musical</span><span class="p">,</span><span class="w"> </span><span class="n">Aggressive</span><span class="p">,</span><span class="w"> </span><span class="n">Demented</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="defining-a-mixin">Defining a Mixin</h4>
+<p>Use <code>mixin</code> to create a mixin. Mixins can't extend other classes and can't have constructors.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">mixin</span><span class="w"> </span><span class="nc">Musical</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="restricting-mixin-usage">Restricting Mixin Usage</h4>
+<p>Use <code>on</code> to specify which classes can use the mixin.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">mixin</span><span class="w"> </span><span class="nc">MusicalPerformer</span><span class="w"> </span><span class="kd">on</span><span class="w"> </span><span class="n">Musician</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Only classes that extend <code>Musician</code> can use <code>MusicalPerformer</code>.</p>
+<h4 id="class-mixin-or-mixin-class"><code>class</code>, <code>mixin</code>, or <code>mixin class</code>?</h4>
+<ul>
+<li><code>mixin</code>: Defines a mixin.</li>
+<li><code>class</code>: Defines a class.</li>
+<li><code>mixin class</code>: Usable as both a class and a mixin.</li>
+</ul>
+<h3 id="mixin-example">Mixin Example</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">mixin</span><span class="w"> </span><span class="nc">PythonProgrammer</span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">codePython</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;I Code in Python&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">mixin</span><span class="w"> </span><span class="nc">DartProgrammer</span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">codeDart</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;I Code in Dart&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">COMP4768Student</span><span class="w"> </span><span class="kd">with</span><span class="w"> </span><span class="n">PythonProgrammer</span><span class="p">,</span><span class="w"> </span><span class="n">DartProgrammer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">buildApps</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;I can build mobile apps&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">COMP4768Student</span><span class="p">();</span>
+<span class="w">  </span><span class="n">student</span><span class="p">.</span><span class="n">codePython</span><span class="p">();</span><span class="w">  </span><span class="c1">// I Code in Python</span>
+<span class="w">  </span><span class="n">student</span><span class="p">.</span><span class="n">codeDart</span><span class="p">();</span><span class="w">    </span><span class="c1">// I Code in Dart</span>
+<span class="w">  </span><span class="n">student</span><span class="p">.</span><span class="n">buildApps</span><span class="p">();</span><span class="w">   </span><span class="c1">// I can build mobile apps</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="abstract-mixin-class">Abstract Mixin Class</h4>
+<p>Make a mixin <code>abstract</code> to require certain methods to be implemented by any class that uses it.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">abstract</span><span class="w"> </span><span class="kd">mixin</span><span class="w"> </span><span class="nc">class</span><span class="w"> </span><span class="n">Musician</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">playInstrument</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">instrumentName</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>This ensures the mixin has access to the methods it needs, similar to the <code>on</code> directive.</p>
+<p>For more details, check the <a href="/guides/language/evolution#language-versioning">Dart language guide</a>.</p>
+<hr />
+<p>Certainly! Below is a summarized and rewritten version of the provided text about enumerated types, or enums, in Dart:</p>
+<hr />
+<h2 id="enumerated-types">Enumerated Types</h2>
+<p>Enumerated types, also known as enums, are specialized classes in Dart that are designed to hold a fixed set of constant values. All enums in Dart inherently extend the <code>Enum</code> class and are sealed, which prevents them from being extended, implemented, or instantiated explicitly.</p>
+<h4 id="simple-enums">Simple Enums</h4>
+<p>You can define a simple enum using the <code>enum</code> keyword:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">enum</span><span class="w"> </span><span class="n">Shade</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">light</span><span class="p">,</span><span class="w"> </span><span class="n">medium</span><span class="p">,</span><span class="w"> </span><span class="n">dark</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+
+<h4 id="enhanced-enums">Enhanced Enums</h4>
+<p>Dart supports enhanced enums that allow you to declare classes with fields, methods, and constant constructors. The requirements for enhanced enums include:</p>
+<ul>
+<li>All instance variables must be <code>final</code>.</li>
+<li>All generative constructors must be <code>const</code>.</li>
+<li>Factory constructors can only return a known enum instance.</li>
+<li>No overrides for <code>index</code>, <code>hashCode</code>, or the <code>==</code> operator.</li>
+</ul>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">enum</span><span class="w"> </span><span class="n">Transport</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Transport</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">car</span><span class="p">(</span><span class="nl">tires:</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="nl">passengers:</span><span class="w"> </span><span class="m">4</span><span class="p">),</span>
+<span class="w">  </span><span class="n">bike</span><span class="p">(</span><span class="nl">tires:</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="nl">passengers:</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">Transport</span><span class="p">({</span><span class="kd">required</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">tires</span><span class="p">,</span><span class="w"> </span><span class="kd">required</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">passengers</span><span class="p">});</span>
+
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">tires</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">passengers</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">compareTo</span><span class="p">(</span><span class="n">Transport</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">tires</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">tires</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="using-enums">Using Enums</h4>
+<p>Enums can be accessed like static variables:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">final</span><span class="w"> </span><span class="n">chosenShade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Shade</span><span class="p">.</span><span class="n">dark</span><span class="p">;</span>
+</code></pre></div>
+
+<p>You can also retrieve the index of an enum value:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">assert</span><span class="p">(</span><span class="n">Shade</span><span class="p">.</span><span class="n">light</span><span class="p">.</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+</code></pre></div>
+
+<p>You can iterate over all enum values using the <code>values</code> constant:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Shade</span><span class="o">&gt;</span><span class="w"> </span><span class="n">allShades</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Shade</span><span class="p">.</span><span class="n">values</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Enums can also be used in <code>switch</code> statements:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">myShade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Shade</span><span class="p">.</span><span class="n">dark</span><span class="p">;</span>
+
+<span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">myShade</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">Shade</span><span class="p">.</span><span class="nl">light:</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Light shade.&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">Shade</span><span class="p">.</span><span class="nl">medium:</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Medium shade.&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="k">default</span><span class="o">:</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">myShade</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>To get the string name of an enum value, use the <code>.name</code> property:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">print</span><span class="p">(</span><span class="n">Shade</span><span class="p">.</span><span class="n">dark</span><span class="p">.</span><span class="n">name</span><span class="p">);</span><span class="w">  </span><span class="c1">// Output: &#39;dark&#39;</span>
+</code></pre></div>
+
+<p>Methods and properties can be accessed just like in regular classes:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">print</span><span class="p">(</span><span class="n">Transport</span><span class="p">.</span><span class="n">car</span><span class="p">.</span><span class="n">tires</span><span class="p">);</span><span class="w">  </span><span class="c1">// Output: 4</span>
+</code></pre></div>
+
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../1.2_functions_controlFlow_errorHandling/" class="btn btn-neutral float-left" title="1.2 Functions, Control Flow & Error Handling"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../1.4_async/" class="btn btn-neutral float-right" title="1.4 Async">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../1.2_functions_controlFlow_errorHandling/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../1.4_async/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
