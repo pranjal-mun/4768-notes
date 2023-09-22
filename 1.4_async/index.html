@@ -92,6 +92,14 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multithreading-using-isolates">Multithreading using Isolates</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-receiveport">What is a ReceivePort?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#message-passing-between-isolates">Message passing between isolates</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../1.5_null_safety/">1.5 Null Safety</a>
@@ -229,6 +237,91 @@
 <li><a href="https://dart.dev/language/concurrency">Concurrency in Dart</a></li>
 <li><a href="https://www.youtube.com/playlist?list=PL5cilqU9W7KR9TxPt2vEBAss1bLr2GThB">Official YouTube Series on Async in Dart</a></li>
 </ol>
+<hr />
+<h2 id="multithreading-using-isolates">Multithreading using Isolates</h2>
+<h3 id="what-is-a-receiveport">What is a <code>ReceivePort</code>?</h3>
+<p><code>ReceivePort</code> is a part of the <code>dart:isolate</code> library and is used to receive messages from other isolates. When you create a <code>ReceivePort</code>, it provides a <code>SendPort</code> that you can send to other isolates. Those isolates can then use that <code>SendPort</code> to send messages back to the <code>ReceivePort</code>.</p>
+<p>Here's a simple example to help you understand how <code>ReceivePort</code> works:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;dart:isolate&#39;</span><span class="p">;</span>
+
+<span class="c1">// Function to run in the new isolate</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">isolateFunction</span><span class="p">(</span><span class="n">SendPort</span><span class="w"> </span><span class="n">sendPort</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;New isolate: Sending &quot;Hello from new isolate!&quot;&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">sendPort</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;Hello from new isolate!&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Create a ReceivePort to receive messages from the new isolate</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">receivePort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReceivePort</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Create a new isolate and pass the SendPort of the main isolate&#39;s ReceivePort</span>
+<span class="w">  </span><span class="kd">await</span><span class="w"> </span><span class="n">Isolate</span><span class="p">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">isolateFunction</span><span class="p">,</span><span class="w"> </span><span class="n">receivePort</span><span class="p">.</span><span class="n">sendPort</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Listen for messages from the new isolate</span>
+<span class="w">  </span><span class="n">receivePort</span><span class="p">.</span><span class="n">listen</span><span class="p">((</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Main isolate: Received &quot;</span><span class="si">$</span><span class="n">data</span><span class="s1">&quot;&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>In this example:</p>
+<ol>
+<li>We create a <code>ReceivePort</code> in the main isolate.</li>
+<li>We spawn a new isolate and pass the <code>SendPort</code> of the <code>ReceivePort</code> to it.</li>
+<li>The new isolate sends a message ("Hello from new isolate!") to the <code>ReceivePort</code> using the <code>SendPort</code>.</li>
+<li>The main isolate listens for messages on the <code>ReceivePort</code> and prints the received message.</li>
+</ol>
+<p>When you run this code, you'll see output like this:</p>
+<div class="codehilite"><pre><span></span><code>New isolate: Sending &quot;Hello from new isolate!&quot;
+Main isolate: Received &quot;Hello from new isolate!&quot;
+</code></pre></div>
+
+<h3 id="message-passing-between-isolates">Message passing between isolates</h3>
+<p>Below is a Dart code example that demonstrates creating a new isolate and passing messages between the main isolate and the new isolate. In this example, we'll pass an integer from the main isolate to the new isolate, double it, and then send it back to the main isolate.</p>
+<p><img alt="Alt text" src="../image.png" width="400" /></p>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;dart:isolate&#39;</span><span class="p">;</span>
+
+<span class="c1">// Function to run in the new isolate</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">isolateFunction</span><span class="p">(</span><span class="n">SendPort</span><span class="w"> </span><span class="n">sendPort</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Create a ReceivePort to receive messages from the main isolate</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">receivePort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReceivePort</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Send the SendPort of the new ReceivePort to the main isolate</span>
+<span class="w">  </span><span class="n">sendPort</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">receivePort</span><span class="p">.</span><span class="n">sendPort</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Listen for messages from the main isolate</span>
+<span class="w">  </span><span class="n">receivePort</span><span class="p">.</span><span class="n">listen</span><span class="p">((</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Received data in new isolate: </span><span class="si">$</span><span class="n">data</span><span class="s1">&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Double the received data</span>
+<span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Send the result back to the main isolate</span>
+<span class="w">    </span><span class="n">sendPort</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Create a ReceivePort to receive messages from the new isolate</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">receivePort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReceivePort</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Create a new isolate and pass the SendPort of the main isolate&#39;s ReceivePort</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">isolate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">Isolate</span><span class="p">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">isolateFunction</span><span class="p">,</span><span class="w"> </span><span class="n">receivePort</span><span class="p">.</span><span class="n">sendPort</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Listen for messages from the new isolate</span>
+<span class="w">  </span><span class="n">receivePort</span><span class="p">.</span><span class="n">listen</span><span class="p">((</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">SendPort</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Send some data to the new isolate using the received SendPort</span>
+<span class="w">      </span><span class="n">data</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Received result from new isolate: </span><span class="si">$</span><span class="n">data</span><span class="s1">&#39;</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// Kill the isolate after receiving the result</span>
+<span class="w">      </span><span class="n">isolate</span><span class="p">.</span><span class="n">kill</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
               
             </div>
           </div><footer>
